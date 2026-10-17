@@ -57,51 +57,9 @@ window.closeModal = closeModal;
    6. VERIFIED TEAM MEMBERS DATA & MODAL
    =================================================================== */
 const teamMembersData = {
-  kirit: {
-    name: "Kiritkumar Dineshbhai Savaliya",
-    designation: "Partner & Director | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Chartered Accountant (CA) | 16+ Years Industry Experience",
-    image: "assets/images/Kirit Savaliya.png",
-    overview: `A qualified Chartered Accountant with over 16 years of extensive experience in corporate finance, financial management, taxation, corporate governance, and strategic business advisory.
-
-As a Partner and Director at Solserva Greentech Pvt. Ltd., he brings strong financial expertise, commercial insight, and strategic leadership to the company's renewable energy business operations. His professional approach focuses on financial discipline, operational efficiency, risk management, and sustainable business growth.`,
-    expertise: [
-      "Corporate Finance & Financial Management",
-      "Strategic Financial Planning & Business Advisory",
-      "Financial Analysis & Investment Evaluation",
-      "Cost Optimization & Profitability Management",
-      "Taxation, Compliance & Corporate Governance",
-      "Financial Risk Assessment & Management",
-      "Solar Project Financial Feasibility & ROI Analysis",
-      "Renewable Energy Project Economics",
-      "Business Development & Sustainable Growth Strategy"
-    ],
-    philosophy: `"Driving sustainable growth through financial excellence, strategic vision, and clean energy innovation."`
-  },
-  hitesh: {
-    name: "Adv. Hiteshbhai Devrajbhai Maniya",
-    designation: "Partner & Director | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Advocate | Legal & Corporate Advisory Professional | 18+ Years Experience",
-    image: "assets/images/Hardik Radadiya.png",
-    overview: `An experienced Advocate with over 18 years of professional experience in the legal and statutory sector, bringing extensive knowledge of corporate legal advisory, regulatory compliance, legal documentation, contractual matters, and commercial business laws.
-
-At Solserva Greentech Pvt. Ltd., he anchors regulatory compliance, DISCOM sanctions, contractual safeguards, corporate governance, and ethical corporate integrity for clean energy developments.`,
-    expertise: [
-      "Legal Advisory & Strategic Corporate Consultation",
-      "Corporate Legal Affairs & Regulatory Compliance",
-      "Contract Drafting, Review & Project Documentation",
-      "Business Agreements & Commercial Legal Matters",
-      "Legal Risk Assessment & Mitigation",
-      "Corporate Governance & Legal Due Diligence",
-      "Commercial Negotiations & Dispute Management",
-      "Renewable Energy Project Legal & DISCOM Considerations",
-      "Business Compliance & Strategic Decision Support"
-    ],
-    philosophy: `"Building sustainable business growth through legal integrity, strategic vision, and professional excellence."`
-  },
   yogesh_eng: {
     name: "Yogeshkumar Savaliya",
-    designation: "Partner & Senior Electrical Consultant | Solserva Greentech Pvt. Ltd.",
+    designation: "Founder & Senior Electrical Consultant | Solserva Greentech Pvt. Ltd.",
     qualifications: "Chartered Engineer | Senior Electrical Engineer | 20+ Years Experience",
     image: "assets/images/Yogesh Savaliya.png",
     overview: `Yogeshkumar Savaliya is a Chartered Engineer and Senior Electrical Engineer with more than 20 years of international and domestic experience in power distribution network planning, operation, and maintenance.
@@ -120,25 +78,66 @@ He has long served with the Electricity and Water Authority, Kingdom of Bahrain,
     ],
     philosophy: `"Engineering precision and rigorous power grid standards are the foundation of true green energy reliability."`
   },
-  suresh: {
-    name: "Sureshbhai Kachhadiya",
-    designation: "Technical Head | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Electronics & Telecom Engineer | 18 Years Vodafone Idea Experience | Solar IoT Specialist",
-    image: "assets/images/Sureshbhai Kachhadiya.png",
-    overview: `With an academic background in Electronics and Communication Engineering and 18 years of high-level professional experience at Vodafone Idea Ltd., Sureshbhai Kachhadiya brings an unparalleled foundation in telecommunications infrastructure, hardware/software fault diagnosis, IoT data pipelines, and remote connectivity.
+  pragnesh: {
+    name: "Pragneshkumar Dineshbhai Savaliya",
+    designation: "Quality Head | Solserva Greentech Pvt. Ltd.",
+    qualifications: "Diploma in Mechanical Engineering | Quality Management | 16+ Years Experience",
+    image: "assets/images/Pragnesh Savaliya.png",
+    overview: `A mechanical engineering professional with over 16 years of specialized industrial experience in Quality Management Systems (QMS), quality assurance, precision engineering, and process standardization.
 
-His mission is to pioneer intelligent IoT and telemetry for the solar industry, enabling EPC contractors, manufacturers, and plant owners to have real-time visibility and predictive fault diagnostics.`,
+At Solserva Greentech Pvt. Ltd., he oversees structural integrity, mounting hardware compliance, supplier quality benchmarking, and technical performance standardization.`,
     expertise: [
-      "Hardware & Software Troubleshooting & Diagnostic Rectification",
-      "18 Years Telecom Infrastructure Experience at Vodafone Idea Ltd.",
-      "IoT Communication Architecture for Solar Inverters & Weather Stations",
-      "Solar Production Data Monitoring & Cloud Telemetry Logging",
-      "AI-Driven Solar Generation Data Analysis & Anomaly Detection",
-      "Specialized Solutions for Solar EPCs, Panel Manufacturers & Plant Owners",
-      "Remote Performance Ratio (PR) Tracking & Rapid Fault Alerting",
-      "System-Level Reliability & Continuity Engineering"
+      "Quality Management Systems (QMS) & Standardization",
+      "Mechanical Structural Integrity & Solar Mounting Rigidity",
+      "Supplier Quality Benchmarking & Component Inspection",
+      "Process Standardization & Operational Defect Minimization",
+      "Technical Documentation & Lifecycle Quality Audits",
+      "Root Cause Analysis & Continuous Process Improvement",
+      "Customer Satisfaction & Long-term Mechanical Reliability"
     ],
-    philosophy: `"Connecting Technology. Enabling Solar Intelligence."`
+    philosophy: `"Delivering excellence through quality, precision, continuous improvement, and engineering innovation."`
+  },
+  kirit: {
+    name: "Kiritkumar Dineshbhai Savaliya",
+    designation: "Managing Director | Solserva Greentech Pvt. Ltd.",
+    qualifications: "Chartered Accountant (CA) | 16+ Years Industry Experience",
+    image: "assets/images/Kirit Savaliya.png",
+    overview: `A qualified Chartered Accountant with over 16 years of extensive experience in corporate finance, financial management, taxation, corporate governance, and strategic business advisory.
+
+As Managing Director at Solserva Greentech Pvt. Ltd., he brings strong financial expertise, commercial insight, and strategic leadership to the company's renewable energy business operations. His professional approach focuses on financial discipline, operational efficiency, risk management, and sustainable business growth.`,
+    expertise: [
+      "Corporate Finance & Financial Management",
+      "Strategic Financial Planning & Business Advisory",
+      "Financial Analysis & Investment Evaluation",
+      "Cost Optimization & Profitability Management",
+      "Taxation, Compliance & Corporate Governance",
+      "Financial Risk Assessment & Management",
+      "Solar Project Financial Feasibility & ROI Analysis",
+      "Renewable Energy Project Economics",
+      "Business Development & Sustainable Growth Strategy"
+    ],
+    philosophy: `"Driving sustainable growth through financial excellence, strategic vision, and clean energy innovation."`
+  },
+  hitesh: {
+    name: "Adv. Hiteshbhai Devrajbhai Maniya",
+    designation: "Managing Director | Solserva Greentech Pvt. Ltd.",
+    qualifications: "Advocate | Legal & Corporate Advisory Professional | 18+ Years Experience",
+    image: "assets/images/Hitesh Maniya.jpeg",
+    overview: `An experienced Advocate with over 18 years of professional experience in the legal and statutory sector, bringing extensive knowledge of corporate legal advisory, regulatory compliance, legal documentation, contractual matters, and commercial business laws.
+
+As Managing Director at Solserva Greentech Pvt. Ltd., he anchors regulatory compliance, DISCOM sanctions, contractual safeguards, corporate governance, and ethical corporate integrity for clean energy developments.`,
+    expertise: [
+      "Legal Advisory & Strategic Corporate Consultation",
+      "Corporate Legal Affairs & Regulatory Compliance",
+      "Contract Drafting, Review & Project Documentation",
+      "Business Agreements & Commercial Legal Matters",
+      "Legal Risk Assessment & Mitigation",
+      "Corporate Governance & Legal Due Diligence",
+      "Commercial Negotiations & Dispute Management",
+      "Renewable Energy Project Legal & DISCOM Considerations",
+      "Business Compliance & Strategic Decision Support"
+    ],
+    philosophy: `"Building sustainable business growth through legal integrity, strategic vision, and professional excellence."`
   },
   yogesh_ops: {
     name: "Yogesh Vallabhbhai Chovatiya",
@@ -159,24 +158,43 @@ He oversees Solserva Greentech's operational discipline, vendor inventory qualit
     ],
     philosophy: `"Quality in every product, efficiency in every process, accuracy in every inventory movement, and safety in every operation."`
   },
-  pragnesh: {
-    name: "Pragneshkumar Dineshbhai Savaliya",
-    designation: "Management Team Member | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Diploma in Mechanical Engineering | Quality Management | 16+ Years Experience",
-    image: "assets/images/Pragnesh Savaliya.png",
-    overview: `A mechanical engineering professional with over 16 years of specialized industrial experience in Quality Management Systems (QMS), quality assurance, precision engineering, and process standardization.
+  suresh: {
+    name: "Sureshbhai Kachhadiya",
+    designation: "Technical Head | Solserva Greentech Pvt. Ltd.",
+    qualifications: "Electronics and Communication Engineer | 18 Years Vodafone Idea Experience | Solar IoT Specialist",
+    image: "assets/images/Sureshbhai Kachhadiya.png",
+    overview: `With an academic background in Electronics and Communication Engineering and 18 years of high-level professional experience at Vodafone Idea Ltd., Sureshbhai Kachhadiya brings an unparalleled foundation in telecommunications infrastructure, hardware/software fault diagnosis, IoT data pipelines, and remote connectivity.
 
-At Solserva Greentech Pvt. Ltd., he oversees structural integrity, mounting hardware compliance, supplier quality benchmarking, and technical performance standardization.`,
+His mission is to pioneer intelligent IoT and telemetry for the solar industry, enabling EPC contractors, manufacturers, and plant owners to have real-time visibility and predictive fault diagnostics.`,
     expertise: [
-      "Quality Management Systems (QMS) & Standardization",
-      "Mechanical Structural Integrity & Solar Mounting Rigidity",
-      "Supplier Quality Benchmarking & Component Inspection",
-      "Process Standardization & Operational Defect Minimization",
-      "Technical Documentation & Lifecycle Quality Audits",
-      "Root Cause Analysis & Continuous Process Improvement",
-      "Customer Satisfaction & Long-term Mechanical Reliability"
+      "Hardware & Software Troubleshooting & Diagnostic Rectification",
+      "18 Years Telecom Infrastructure Experience at Vodafone Idea Ltd.",
+      "IoT Communication Architecture for Solar Inverters & Weather Stations",
+      "Solar Production Data Monitoring & Cloud Telemetry Logging",
+      "AI-Driven Solar Generation Data Analysis & Anomaly Detection",
+      "Specialized Solutions for Solar EPCs, Panel Manufacturers & Plant Owners",
+      "Remote Performance Ratio (PR) Tracking & Rapid Fault Alerting",
+      "System-Level Reliability & Continuity Engineering"
     ],
-    philosophy: `"Delivering excellence through quality, precision, continuous improvement, and engineering innovation."`
+    philosophy: `"Connecting Technology. Enabling Solar Intelligence."`
+  },
+  hardik: {
+    name: "Hardik Ratibhai Radadiya",
+    designation: "Electrical Head | Solserva Greentech Pvt. Ltd.",
+    qualifications: "Electrical Engineer | 16+ Years Experience",
+    image: "assets/images/Hardik Radadiya.png",
+    overview: `Hardik Ratibhai Radadiya serves as the Electrical Head at Solserva Greentech Pvt. Ltd., bringing 16 years of deep electrical engineering expertise to the forefront of solar data intelligence. Instead of physical installations, Hardik Ratibhai Radadiya directs the technical architecture behind the company's advanced data monitoring, performance analytics, and predictive maintenance services, ensuring solar assets worldwide operate at peak efficiency.
+
+Graduating as an Electrical Engineer in 2010, Hardik Ratibhai Radadiya spent the foundational years of his career mastering electrical power systems. As the renewable sector evolved, he recognized that the future of solar efficiency lay in data. Over the past 16 years, Hardik Ratibhai Radadiya transitioned his core electrical knowledge into the digital space, becoming an expert in solar asset performance management and data-driven optimization.`,
+    expertise: [
+      "Solar Telemetry & Monitoring: Designing and deploying IoT-based data acquisition systems to track real-time solar plant performance",
+      "Performance Analytics: Utilizing electrical engineering principles to analyze generation data, detect degradation, and minimize downtime",
+      "Smart Grid & SCADA Systems: Integrating Supervisory Control and Data Acquisition (SCADA) systems for seamless cloud-based data reporting",
+      "Root-Cause Fault Diagnosis: Leading technical audits to identify underperformance issues, inverter inefficiencies, and grid anomalies",
+      "Solar Asset Performance Management & Data-Driven Optimization",
+      "Electrical Power Systems & Predictive Maintenance Architecture"
+    ],
+    philosophy: `"Hardware only generates power; data optimizes it. At Solserva Greentech, we transform raw solar metrics into actionable intelligence, ensuring our clients maximize every single ray of sunlight."`
   }
 };
 
