@@ -12,15 +12,21 @@ function initNavbar() {
   function closeMobileNav() {
     if (navMenu && navMenu.classList.contains('active')) {
       navMenu.classList.remove('active');
-      if (toggleBtn) toggleBtn.innerHTML = '&#9776;';
+      document.body.classList.remove('nav-open');
+      if (toggleBtn) {
+        toggleBtn.innerHTML = '&#9776;';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
     }
   }
 
   if (toggleBtn && navMenu) {
     toggleBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      navMenu.classList.toggle('active');
-      toggleBtn.innerHTML = navMenu.classList.contains('active') ? '&times;' : '&#9776;';
+      const isActive = navMenu.classList.toggle('active');
+      document.body.classList.toggle('nav-open', isActive);
+      toggleBtn.innerHTML = isActive ? '&times;' : '&#9776;';
+      toggleBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
     });
   }
 
@@ -33,14 +39,28 @@ function initNavbar() {
     }
   });
 
-  // Mobile dropdown toggle (matches CSS @media max-width: 1100px)
+  // Close when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileNav();
+    }
+  });
+
+  // Auto-close drawer if screen is resized to desktop width
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+      closeMobileNav();
+    }
+  });
+
+  // Mobile dropdown toggle (matches CSS @media max-width: 1024px)
   navItems.forEach(item => {
     const link = item.querySelector('.nav-link');
     const dropdown = item.querySelector('.dropdown-menu');
 
     if (link && dropdown) {
       link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 1100) {
+        if (window.innerWidth <= 1024) {
           e.preventDefault();
           item.classList.toggle('mobile-open');
         }
@@ -52,7 +72,7 @@ function initNavbar() {
   navMenu?.querySelectorAll('a').forEach(anchor => {
     anchor.addEventListener('click', () => {
       // Don't close if it's the parent link opening the mobile dropdown
-      if (window.innerWidth <= 1100 && anchor.classList.contains('nav-link') && anchor.parentElement?.querySelector('.dropdown-menu')) {
+      if (window.innerWidth <= 1024 && anchor.classList.contains('nav-link') && anchor.parentElement?.querySelector('.dropdown-menu')) {
         return;
       }
       closeMobileNav();

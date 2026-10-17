@@ -1,824 +1,1137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How It Works | Solar Telemetry & O&M Implementation - SOLServa</title>
-  
-  <!-- Technical SEO & Geo-Targeted Meta Tags -->
-  <meta name="description" content="Understand SOLServa's 6-step solar monitoring and O&M lifecycle: site compatibility audit, IoT data logger sync, real-time telemetry, automated PR analytics, and alert triage.">
-  <meta name="keywords" content="solar monitoring system Gujarat, commercial solar O&M software India, solar EPC partner Surat, remote solar plant telemetry India, solar data logger Gujarat, industrial solar plant monitoring, PM Surya Ghar monitoring, inverter telemetry Surat, solar SCADA software India, solar performance analytics, rooftop solar monitoring Gujarat, Solserva Greentech">
-  <meta name="author" content="SOLServa Greentech Private Limited">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <link rel="canonical" href="https://solserva.com/how-it-works.html">
-  
-  <!-- Local Search & Geo-Targeting (Gujarat / Surat / India) -->
-  <meta name="geo.region" content="IN-GJ">
-  <meta name="geo.placename" content="Surat">
-  <meta name="geo.position" content="21.2185;72.8660">
-  <meta name="ICBM" content="21.2185, 72.8660">
-  <meta name="city" content="Surat">
-  <meta name="country" content="India">
-  
-  <!-- Dynamic Open Graph Tags (WhatsApp, LinkedIn, Facebook) -->
-  <meta property="og:site_name" content="SOLServa Greentech">
-  <meta property="og:title" content="How It Works | Solar Telemetry & O&M Implementation - SOLServa">
-  <meta property="og:description" content="Understand SOLServa's 6-step solar monitoring and O&M lifecycle: site compatibility audit, IoT data logger sync, real-time telemetry, automated PR analytics, and alert triage.">
-  <meta property="og:image" content="assets/images/Logo.jpeg">
-  <meta property="og:image:secure_url" content="https://solserva.com/assets/images/Logo.jpeg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="SOLServa Smart Solar Monitoring Platform">
-  <meta property="og:url" content="https://solserva.com/how-it-works.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      How It Works | Solar Telemetry & O&M Implementation - SOLServa
+    </title>
 
-  <!-- Twitter / X Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="How It Works | Solar Telemetry & O&M Implementation - SOLServa">
-  <meta name="twitter:description" content="Understand SOLServa's 6-step solar monitoring and O&M lifecycle: site compatibility audit, IoT data logger sync, real-time telemetry, automated PR analytics, and alert triage.">
-  <meta name="twitter:image" content="assets/images/Logo.jpeg">
+    <!-- Technical SEO & Geo-Targeted Meta Tags -->
+    <meta
+      name="description"
+      content="Understand SOLServa's 6-step solar monitoring and O&M lifecycle: site compatibility audit, IoT data logger sync, real-time telemetry, automated PR analytics, and alert triage."
+    />
+    <meta
+      name="keywords"
+      content="solar monitoring system Gujarat, commercial solar O&M software India, solar EPC partner Surat, remote solar plant telemetry India, solar data logger Gujarat, industrial solar plant monitoring, PM Surya Ghar monitoring, inverter telemetry Surat, solar SCADA software India, solar performance analytics, rooftop solar monitoring Gujarat, Solserva Greentech"
+    />
+    <meta name="author" content="SOLServa Greentech Private Limited" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://solserva.com/how-it-works.html" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="assets/images/Logo.jpeg">
-  <link rel="apple-touch-icon" href="assets/images/Logo.jpeg">
+    <!-- Local Search & Geo-Targeting (Gujarat / Surat / India) -->
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Surat" />
+    <meta name="geo.position" content="21.2185;72.8660" />
+    <meta name="ICBM" content="21.2185, 72.8660" />
+    <meta name="city" content="Surat" />
+    <meta name="country" content="India" />
 
-  <!-- Performance Optimization: Preconnect & Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Dynamic Open Graph Tags (WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:site_name" content="SOLServa Greentech" />
+    <meta
+      property="og:title"
+      content="How It Works | Solar Telemetry & O&M Implementation - SOLServa"
+    />
+    <meta
+      property="og:description"
+      content="Understand SOLServa's 6-step solar monitoring and O&M lifecycle: site compatibility audit, IoT data logger sync, real-time telemetry, automated PR analytics, and alert triage."
+    />
+    <meta
+      property="og:image"
+      content="assets/images/SOLSERVA Green Energy Emblem.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://solserva.com/assets/images/SOLSERVA Green Energy Emblem.png"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="SOLServa Smart Solar Monitoring Platform"
+    />
+    <meta property="og:url" content="https://solserva.com/how-it-works.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IN" />
 
-  <!-- Modular CSS Suite -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/sections.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="How It Works | Solar Telemetry & O&M Implementation - SOLServa"
+    />
+    <meta
+      name="twitter:description"
+      content="Understand SOLServa's 6-step solar monitoring and O&M lifecycle: site compatibility audit, IoT data logger sync, real-time telemetry, automated PR analytics, and alert triage."
+    />
+    <meta
+      name="twitter:image"
+      content="assets/images/SOLSERVA Green Energy Emblem.png"
+    />
 
-  <!-- Structured Data JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "How SOLServa Solar Telemetry & O&M Lifecycle Operates",
-    "step": [
-      { "@type": "HowToStep", "name": "Technical Inverter & Plant Review" },
-      { "@type": "HowToStep", "name": "Telemetry Hardware / Cloud API Sync" },
-      { "@type": "HowToStep", "name": "Real-time Telemetry Ingestion" },
-      { "@type": "HowToStep", "name": "Performance Analytics & Trend Benchmarking" },
-      { "@type": "HowToStep", "name": "Automated Alert Dispatch (WhatsApp & Email)" },
-      { "@type": "HowToStep", "name": "Proactive O&M Ticket Routing" }
-    ]
-  }
-  </script>
-</head>
-<body>
-  <!-- TOP ANNOUNCEMENT BAR -->
-  <div class="top-bar">
-    <div class="container top-bar-inner">
-      <div class="top-bar-notice">
-        <span class="pulse-badge">SOLServa Platform</span>
-        <span>Smart Solar Monitoring & O&M Coordination for EPCs, C&I & Residential Plants</span>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="assets/images/SOLSERVA Green Energy Emblem.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="assets/images/SOLSERVA Green Energy Emblem.png"
+    />
+
+    <!-- Performance Optimization: Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Modular CSS Suite -->
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How SOLServa Solar Telemetry & O&M Lifecycle Operates",
+        "step": [
+          { "@type": "HowToStep", "name": "Technical Inverter & Plant Review" },
+          {
+            "@type": "HowToStep",
+            "name": "Telemetry Hardware / Cloud API Sync"
+          },
+          { "@type": "HowToStep", "name": "Real-time Telemetry Ingestion" },
+          {
+            "@type": "HowToStep",
+            "name": "Performance Analytics & Trend Benchmarking"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Automated Alert Dispatch (WhatsApp & Email)"
+          },
+          { "@type": "HowToStep", "name": "Proactive O&M Ticket Routing" }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <div class="top-bar-notice">
+          <span class="pulse-badge">SOLServa Platform</span>
+          <span
+            >Smart Solar Monitoring & O&M Coordination for EPCs, C&I &
+            Residential Plants</span
+          >
+        </div>
+        <div class="top-bar-contact">
+          <a href="mailto:solservagreentechpvtltd@gmail.com">
+            <span>✉</span> solservagreentechpvtltd@gmail.com
+          </a>
+          <a href="https://wa.me/919825000000" target="_blank" rel="noopener">
+            <span>💬</span> WhatsApp
+          </a>
+        </div>
       </div>
-      <div class="top-bar-contact">
-        <a href="mailto:solservagreentechpvtltd@gmail.com">
-          <span>✉</span> solservagreentechpvtltd@gmail.com
+    </div>
+
+    <!-- MAIN HEADER & NAVIGATION -->
+    <header class="main-header" id="header">
+      <div class="container navbar">
+        <!-- Brand Logo & Clean Title -->
+        <a href="index.html" class="brand-link" id="brandLogo">
+          <img
+            src="assets/images/SOLSERVA Green Energy Emblem.png"
+            alt="SOLServa Logo"
+            class="brand-logo-img"
+          />
+          <div class="brand-info">
+            <span class="brand-title">SOLSERVA</span>
+            <span class="brand-tag-pill">Smart Solar Telemetry &amp; EPC</span>
+          </div>
         </a>
 
+        <!-- Desktop & Mobile Navigation Menu -->
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
 
+            <!-- Services Dropdown -->
+            <li class="nav-item">
+              <a href="services.html" class="nav-link">
+                Services <span class="caret">▼</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="services.html#monitoring" class="dropdown-item">
+                  <span class="item-title">Solar Monitoring</span>
+                  <span class="item-desc"
+                    >Generation tracking, inverter status & alarms</span
+                  >
+                </a>
+                <a href="services.html#analytics" class="dropdown-item">
+                  <span class="item-title">Performance Analytics</span>
+                  <span class="item-desc"
+                    >Generation trends, degradation & historical PR</span
+                  >
+                </a>
+                <a href="services.html#om" class="dropdown-item">
+                  <span class="item-title">O&M Coordination</span>
+                  <span class="item-desc"
+                    >Ticketing workflow & maintenance tracking</span
+                  >
+                </a>
+                <a href="services.html#audit" class="dropdown-item">
+                  <span class="item-title">Solar Audit & Inspection</span>
+                  <span class="item-desc"
+                    >Remote desk analysis & thermography checks</span
+                  >
+                </a>
+                <a href="services.html#logger" class="dropdown-item">
+                  <span class="item-title">Data Logger & Connectivity</span>
+                  <span class="item-desc"
+                    >Inverter APIs, 4G/WiFi loggers & protocols</span
+                  >
+                </a>
+              </div>
+            </li>
 
+            <!-- Solutions Dropdown -->
+            <li class="nav-item">
+              <a href="solutions.html" class="nav-link">
+                Solutions <span class="caret">▼</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="solutions.html#solutions-epc" class="dropdown-item">
+                  <span class="item-title">For Solar EPCs</span>
+                  <span class="item-desc"
+                    >Extend relationships beyond installation</span
+                  >
+                </a>
+                <a href="solutions.html#solutions-ci" class="dropdown-item">
+                  <span class="item-title">For Industrial & Commercial</span>
+                  <span class="item-desc"
+                    >Multi-inverter & multi-site portfolio views</span
+                  >
+                </a>
+                <a
+                  href="solutions.html#solutions-residential"
+                  class="dropdown-item"
+                >
+                  <span class="item-title">For Residential Solar</span>
+                  <span class="item-desc"
+                    >Daily generation visibility & support</span
+                  >
+                </a>
+                <a href="solutions.html#solutions-om" class="dropdown-item">
+                  <span class="item-title">For O&M Companies</span>
+                  <span class="item-desc"
+                    >Fleet alert triage & service workflow</span
+                  >
+                </a>
+              </div>
+            </li>
 
+            <!-- EPC Partners Dropdown -->
+            <li class="nav-item">
+              <a href="epc-partners.html" class="nav-link">
+                EPC Partners <span class="caret">▼</span>
+              </a>
+              <div class="dropdown-menu">
+                <a href="epc-partners.html#co-branded" class="dropdown-item">
+                  <span class="item-title">Co-branded Monitoring</span>
+                  <span class="item-desc"
+                    >Reports and materials with joint branding</span
+                  >
+                </a>
+                <a href="epc-partners.html#white-label" class="dropdown-item">
+                  <span class="item-title">White-label Solutions</span>
+                  <span class="item-desc"
+                    >Custom EPC-branded client experience</span
+                  >
+                </a>
+                <a href="epc-partners.html" class="dropdown-item">
+                  <span class="item-title">Partner Application</span>
+                  <span class="item-desc"
+                    >Onboard your customer solar installations</span
+                  >
+                </a>
+              </div>
+            </li>
 
+            <!-- How It Works -->
+            <li class="nav-item">
+              <a
+                href="how-it-works.html"
+                class="nav-link active active-override"
+                >How It Works</a
+              >
+            </li>
 
-        <a href="https://wa.me/919825000000" target="_blank" rel="noopener">
-          <span>💬</span> WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
+            <!-- Solar Calculator -->
+            <li class="nav-item">
+              <a href="calculator.html" class="nav-link">Calculator</a>
+            </li>
 
-  <!-- MAIN HEADER & NAVIGATION -->
-  <header class="main-header" id="header">
-    <div class="container navbar">
-      <!-- Brand Logo & Clean Title -->
-      <a href="index.html" class="brand-link" id="brandLogo">
-        <img src="assets/images/Logo.jpeg" alt="SOLServa Logo" class="brand-logo-img">
-        <div class="brand-info">
-          <span class="brand-title">SOLSERVA</span>
-          <span class="brand-tag-pill">Smart Solar Telemetry &amp; EPC</span>
+            <!-- Resources -->
+            <li class="nav-item">
+              <a href="resources.html" class="nav-link">Resources</a>
+            </li>
+
+            <!-- About Us -->
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About Us</a>
+            </li>
+
+            <!-- Contact -->
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Header CTAs -->
+        <div class="nav-actions">
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle Navigation Menu"
+          >
+            &#9776;
+          </button>
         </div>
-      </a>
-
-      <!-- Desktop & Mobile Navigation Menu -->
-      <nav>
-        <ul class="nav-menu" id="navMenu">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">Home</a>
-          </li>
-
-          <!-- Services Dropdown -->
-          <li class="nav-item">
-            <a href="services.html" class="nav-link">
-              Services <span class="caret">▼</span>
-            </a>
-            <div class="dropdown-menu">
-              <a href="services.html#monitoring" class="dropdown-item">
-                <span class="item-title">Solar Monitoring</span>
-                <span class="item-desc">Generation tracking, inverter status & alarms</span>
-              </a>
-              <a href="services.html#analytics" class="dropdown-item">
-                <span class="item-title">Performance Analytics</span>
-                <span class="item-desc">Generation trends, degradation & historical PR</span>
-              </a>
-              <a href="services.html#om" class="dropdown-item">
-                <span class="item-title">O&M Coordination</span>
-                <span class="item-desc">Ticketing workflow & maintenance tracking</span>
-              </a>
-              <a href="services.html#audit" class="dropdown-item">
-                <span class="item-title">Solar Audit & Inspection</span>
-                <span class="item-desc">Remote desk analysis & thermography checks</span>
-              </a>
-              <a href="services.html#logger" class="dropdown-item">
-                <span class="item-title">Data Logger & Connectivity</span>
-                <span class="item-desc">Inverter APIs, 4G/WiFi loggers & protocols</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- Solutions Dropdown -->
-          <li class="nav-item">
-            <a href="solutions.html" class="nav-link">
-              Solutions <span class="caret">▼</span>
-            </a>
-            <div class="dropdown-menu">
-              <a href="solutions.html#solutions-epc" class="dropdown-item">
-                <span class="item-title">For Solar EPCs</span>
-                <span class="item-desc">Extend relationships beyond installation</span>
-              </a>
-              <a href="solutions.html#solutions-ci" class="dropdown-item">
-                <span class="item-title">For Industrial & Commercial</span>
-                <span class="item-desc">Multi-inverter & multi-site portfolio views</span>
-              </a>
-              <a href="solutions.html#solutions-residential" class="dropdown-item">
-                <span class="item-title">For Residential Solar</span>
-                <span class="item-desc">Daily generation visibility & support</span>
-              </a>
-              <a href="solutions.html#solutions-om" class="dropdown-item">
-                <span class="item-title">For O&M Companies</span>
-                <span class="item-desc">Fleet alert triage & service workflow</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- EPC Partners Dropdown -->
-          <li class="nav-item">
-            <a href="epc-partners.html" class="nav-link">
-              EPC Partners <span class="caret">▼</span>
-            </a>
-            <div class="dropdown-menu">
-              <a href="epc-partners.html#co-branded" class="dropdown-item">
-                <span class="item-title">Co-branded Monitoring</span>
-                <span class="item-desc">Reports and materials with joint branding</span>
-              </a>
-              <a href="epc-partners.html#white-label" class="dropdown-item">
-                <span class="item-title">White-label Solutions</span>
-                <span class="item-desc">Custom EPC-branded client experience</span>
-              </a>
-              <a href="javascript:void(0)" onclick="openModal('epcPartnerModal')" class="dropdown-item">
-                <span class="item-title">Partner Application</span>
-                <span class="item-desc">Onboard your customer solar installations</span>
-              </a>
-            </div>
-          </li>
-
-          <!-- How It Works -->
-          <li class="nav-item">
-            <a href="how-it-works.html" class="nav-link active active-override">How It Works</a>
-          </li>
-
-          <!-- Solar Calculator -->
-          <li class="nav-item">
-            <a href="calculator.html" class="nav-link">Calculator</a>
-          </li>
-
-          <!-- Resources -->
-          <li class="nav-item">
-            <a href="resources.html" class="nav-link">Resources</a>
-          </li>
-
-          <!-- About Us -->
-          <li class="nav-item">
-            <a href="about.html" class="nav-link">About Us</a>
-          </li>
-
-          <!-- Contact -->
-          <li class="nav-item">
-            <a href="contact.html" class="nav-link">Contact</a>
-          </li>
-        </ul>
-      </nav>
-
-      <!-- Header CTAs -->
-      <div class="nav-actions">
-
-
-
-
-
-
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation Menu">
-          &#9776;
-        </button>
       </div>
-    </div>
-  </header>
-  <!-- PAGE HERO BANNER -->
-  <div class="page-banner" style="background: linear-gradient(135deg, var(--dark-navy) 0%, var(--dark-surface) 100%); padding: 70px 0 50px; border-bottom: 1px solid var(--dark-border); text-align: center; position: relative;">
-    <div class="container">
-      <div class="hero-badge-row" style="justify-content: center; margin-bottom: 16px;">
-        <span class="hero-badge highlight-badge">⚡ Telemetry Architecture</span>
-        <span class="hero-badge">Govt CIN: U35105GJ2026PTC175472</span>
-      </div>
-      <h1 style="color: var(--text-white); font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-heading);">How SOLServa Works - 6-Step Implementation</h1>
-      <p style="color: var(--text-light); max-width: 760px; margin: 0 auto 20px; font-size: 1.05rem;">A structured, transparent engineering lifecycle connecting physical solar assets to intelligent cloud telemetry and prompt field service dispatch.</p>
-      <div class="breadcrumbs" style="color: var(--text-muted); font-size: 0.88rem;">
-        <a href="index.html" style="color: var(--primary); font-weight: 600;">Home</a> &nbsp;/&nbsp; <span style="color: var(--text-light);">How It Works</span>
-      </div>
-    </div>
-  </div>
-  <section class="how-it-works-section" id="how-it-works">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tag">Workflow Process</span>
-        <h2 class="section-title">How SOLServa Monitoring Works</h2>
-        <p class="section-subtitle">
-          From first enquiry to active monitoring and ongoing service tracking, our standardized 6-step lifecycle ensures full transparency.
+    </header>
+    <!-- PAGE HERO BANNER -->
+    <div
+      class="page-banner"
+      style="
+        background: linear-gradient(
+          135deg,
+          var(--dark-navy) 0%,
+          var(--dark-surface) 100%
+        );
+        padding: 70px 0 50px;
+        border-bottom: 1px solid var(--dark-border);
+        text-align: center;
+        position: relative;
+      "
+    >
+      <div class="container">
+        <div
+          class="hero-badge-row"
+          style="justify-content: center; margin-bottom: 16px"
+        >
+          <span class="hero-badge highlight-badge"
+            >⚡ Telemetry Architecture</span
+          >
+          <span class="hero-badge">Govt CIN: U35105GJ2026PTC175472</span>
+        </div>
+        <h1
+          style="
+            color: var(--text-white);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            font-family: var(--font-heading);
+          "
+        >
+          How SOLServa Works - 6-Step Implementation
+        </h1>
+        <p
+          style="
+            color: var(--text-light);
+            max-width: 760px;
+            margin: 0 auto 20px;
+            font-size: 1.05rem;
+          "
+        >
+          A structured, transparent engineering lifecycle connecting physical
+          solar assets to intelligent cloud telemetry and prompt field service
+          dispatch.
         </p>
-      </div>
-
-      <div class="workflow-steps-grid">
-        <div class="workflow-step-card">
-          <div class="wf-step-badge">1</div>
-          <h4>Enquiry</h4>
-          <p>Customer or EPC submits plant location, capacity, and inverter specifications.</p>
+        <div
+          class="breadcrumbs"
+          style="color: var(--text-muted); font-size: 0.88rem"
+        >
+          <a href="index.html" style="color: var(--primary); font-weight: 600"
+            >Home</a
+          >
+          &nbsp;/&nbsp;
+          <span style="color: var(--text-light)">How It Works</span>
         </div>
-
-        <div class="workflow-step-card">
-          <div class="wf-step-badge">2</div>
-          <h4>Review</h4>
-          <p>We review inverter communication protocols, existing loggers, and data access.</p>
-        </div>
-
-        <div class="workflow-step-card">
-          <div class="wf-step-badge">3</div>
-          <h4>Proposal</h4>
-          <p>Confirmation of data scope, hardware requirements (if needed), and transparent pricing.</p>
-        </div>
-
-        <div class="workflow-step-card">
-          <div class="wf-step-badge">4</div>
-          <h4>Onboarding</h4>
-          <p>Authorized access configuration, logger connectivity, and alert recipient setup.</p>
-        </div>
-
-        <div class="workflow-step-card">
-          <div class="wf-step-badge">5</div>
-          <h4>Monitoring</h4>
-          <p>Telemetry collection, daily summaries, and performance ratio tracking at agreed frequency.</p>
-        </div>
-
-        <div class="workflow-step-card">
-          <div class="wf-step-badge">6</div>
-          <h4>Service Action</h4>
-          <p>Abnormal alerts trigger service ticket creation and maintenance coordination.</p>
-        </div>
-      </div>
-
-      <div style="margin-top: 36px; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
-        <em>*Note: The exact technical process may vary depending on inverter brand, logger hardware, local cellular network, and contracted service plan.</em>
       </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Col 1: Brand Info -->
-        <div class="footer-col">
-          <div class="footer-brand">
-            <img src="assets/images/Logo.jpeg" alt="SOLServa Logo" class="brand-logo-img">
-            <div>
-              <span class="brand-title">SOLSERVA</span>
-              <span class="brand-tag-pill">Greentech Pvt. Ltd.</span>
-            </div>
-          </div>
-          <p class="footer-about">
-            SOLServa is India's dedicated solar monitoring and O&M coordination platform. We empower Solar EPCs, C&I enterprises, and residential plant owners across Gujarat & India with automated generation tracking, inverter telemetry, and proactive fault diagnostics.
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tag">Workflow Process</span>
+          <h2 class="section-title">How SOLServa Monitoring Works</h2>
+          <p class="section-subtitle">
+            From first enquiry to active monitoring and ongoing service
+            tracking, our standardized 6-step lifecycle ensures full
+            transparency.
           </p>
-          <div class="footer-statutory-badges">
-            <span class="stat-badge">CIN: U35105GJ2026PTC175472</span>
-            <span class="stat-badge">GSTIN: 24ABTCS2095J1ZR</span>
-            <span class="stat-badge">PAN: ABTCS2095J</span>
+        </div>
+
+        <div class="workflow-steps-grid">
+          <div class="workflow-step-card">
+            <div class="wf-step-badge">1</div>
+            <h4>Enquiry</h4>
+            <p>
+              Customer or EPC submits plant location, capacity, and inverter
+              specifications.
+            </p>
+          </div>
+
+          <div class="workflow-step-card">
+            <div class="wf-step-badge">2</div>
+            <h4>Review</h4>
+            <p>
+              We review inverter communication protocols, existing loggers, and
+              data access.
+            </p>
+          </div>
+
+          <div class="workflow-step-card">
+            <div class="wf-step-badge">3</div>
+            <h4>Proposal</h4>
+            <p>
+              Confirmation of data scope, hardware requirements (if needed), and
+              transparent pricing.
+            </p>
+          </div>
+
+          <div class="workflow-step-card">
+            <div class="wf-step-badge">4</div>
+            <h4>Onboarding</h4>
+            <p>
+              Authorized access configuration, logger connectivity, and alert
+              recipient setup.
+            </p>
+          </div>
+
+          <div class="workflow-step-card">
+            <div class="wf-step-badge">5</div>
+            <h4>Monitoring</h4>
+            <p>
+              Telemetry collection, daily summaries, and performance ratio
+              tracking at agreed frequency.
+            </p>
+          </div>
+
+          <div class="workflow-step-card">
+            <div class="wf-step-badge">6</div>
+            <h4>Service Action</h4>
+            <p>
+              Abnormal alerts trigger service ticket creation and maintenance
+              coordination.
+            </p>
           </div>
         </div>
 
-        <!-- Col 2: Services -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Services</h4>
-          <ul class="footer-links">
-            <li><a href="services.html#monitoring">Solar Plant Monitoring</a></li>
-            <li><a href="services.html#analytics">Performance Analytics & PR</a></li>
-            <li><a href="services.html#om">O&M Ticket Coordination</a></li>
-            <li><a href="services.html#audit">Solar Audit & Thermography</a></li>
-            <li><a href="services.html#logger">Data Logger & Inverter APIs</a></li>
-            <li><a href="javascript:void(0)" onclick="openModal('compatibilityModal')">Compatibility Review</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Solutions & Tools -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Solutions & Tools</h4>
-          <ul class="footer-links">
-            <li><a href="solutions.html#solutions-epc">For Solar EPCs</a></li>
-            <li><a href="solutions.html#solutions-ci">Commercial & Industrial</a></li>
-            <li><a href="solutions.html#solutions-residential">PM Surya Ghar Residential</a></li>
-            <li><a href="solutions.html#solutions-om">For O&M Fleet Operators</a></li>
-            <li><a href="epc-partners.html">EPC Partnership Program</a></li>
-            <li><a href="calculator.html">Solar ROI & Subsidy Calculator</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Corporate & Support -->
-        <div class="footer-col">
-          <h4 class="footer-heading">Corporate & Support</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">About Executive Leadership</a></li>
-            <li><a href="about.html#credentials">Verified Credentials</a></li>
-            <li><a href="how-it-works.html">How It Works Lifecycle</a></li>
-            <li><a href="resources.html">Knowledge Base & FAQs</a></li>
-            <li><a href="contact.html">Contact & Service Desk</a></li>
-            <li><a href="javascript:void(0)" onclick="openModal('serviceRequestModal')">Submit Service Ticket</a></li>
-          </ul>
+        <div
+          style="
+            margin-top: 36px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+          "
+        >
+          <em
+            >*Note: The exact technical process may vary depending on inverter
+            brand, logger hardware, local cellular network, and contracted
+            service plan.</em
+          >
         </div>
       </div>
+    </section>
 
-      <div class="footer-bottom">
-        <div class="footer-copy">
-          &copy; 2026 <strong>SOLSERVA GREENTECH PRIVATE LIMITED</strong>. All rights reserved. Registered under Companies Act, 2013 (ROC Ahmedabad, Gujarat).
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Col 1: Brand Info -->
+          <div class="footer-col">
+            <div class="footer-brand">
+              <img
+                src="assets/images/SOLSERVA Green Energy Emblem.png"
+                alt="SOLServa Logo"
+                class="brand-logo-img"
+              />
+              <div>
+                <span class="brand-title">SOLSERVA</span>
+                <span class="brand-tag-pill">Greentech Pvt. Ltd.</span>
+              </div>
+            </div>
+            <p class="footer-about">
+              SOLServa is India's dedicated solar monitoring and O&M
+              coordination platform. We empower Solar EPCs, C&I enterprises, and
+              residential plant owners across Gujarat & India with automated
+              generation tracking, inverter telemetry, and proactive fault
+              diagnostics.
+            </p>
+            <div class="footer-statutory-badges">
+              <span class="stat-badge">CIN: U35105GJ2026PTC175472</span>
+              <span class="stat-badge">GSTIN: 24ABTCS2095J1ZR</span>
+              <span class="stat-badge">PAN: ABTCS2095J</span>
+            </div>
+          </div>
+
+          <!-- Col 2: Services -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Services</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="services.html#monitoring">Solar Plant Monitoring</a>
+              </li>
+              <li>
+                <a href="services.html#analytics">Performance Analytics & PR</a>
+              </li>
+              <li><a href="services.html#om">O&M Ticket Coordination</a></li>
+              <li>
+                <a href="services.html#audit">Solar Audit & Thermography</a>
+              </li>
+              <li>
+                <a href="services.html#logger">Data Logger & Inverter APIs</a>
+              </li>
+              <li><a href="contact.html">Compatibility Review</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Solutions & Tools -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Solutions & Tools</h4>
+            <ul class="footer-links">
+              <li><a href="solutions.html#solutions-epc">For Solar EPCs</a></li>
+              <li>
+                <a href="solutions.html#solutions-ci"
+                  >Commercial & Industrial</a
+                >
+              </li>
+              <li>
+                <a href="solutions.html#solutions-residential"
+                  >PM Surya Ghar Residential</a
+                >
+              </li>
+              <li>
+                <a href="solutions.html#solutions-om"
+                  >For O&M Fleet Operators</a
+                >
+              </li>
+              <li><a href="epc-partners.html">EPC Partnership Program</a></li>
+              <li>
+                <a href="calculator.html">Solar ROI & Subsidy Calculator</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Corporate & Support -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Corporate & Support</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Executive Leadership</a></li>
+              <li><a href="about.html#credentials">Verified Credentials</a></li>
+              <li><a href="how-it-works.html">How It Works Lifecycle</a></li>
+              <li><a href="resources.html">Knowledge Base & FAQs</a></li>
+              <li><a href="contact.html">Contact & Service Desk</a></li>
+              <li><a href="contact.html">Submit Service Ticket</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="footer-legal-links">
-          <a href="javascript:void(0)" onclick="openModal('legalModal_terms')">Terms of Service</a>
-          <a href="javascript:void(0)" onclick="openModal('legalModal_privacy')">Privacy Policy</a>
-          <a href="javascript:void(0)" onclick="openModal('legalModal_disclaimer')">Technical Disclaimer</a>
-          <a href="javascript:void(0)" onclick="openModal('legalModal_scope')">Scope of Services</a>
+
+        <div class="footer-bottom">
+          <div class="footer-copy">
+            &copy; 2026 <strong>SOLSERVA GREENTECH PRIVATE LIMITED</strong>. All
+            rights reserved. Registered under Companies Act, 2013 (ROC
+            Ahmedabad, Gujarat).
+          </div>
+          <div class="footer-legal-links">
+            <a href="javascript:void(0)" onclick="openModal('legalModal_terms')"
+              >Terms of Service</a
+            >
+            <a
+              href="javascript:void(0)"
+              onclick="openModal('legalModal_privacy')"
+              >Privacy Policy</a
+            >
+            <a
+              href="javascript:void(0)"
+              onclick="openModal('legalModal_disclaimer')"
+              >Technical Disclaimer</a
+            >
+            <a href="javascript:void(0)" onclick="openModal('legalModal_scope')"
+              >Scope of Services</a
+            >
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <!-- MODAL 1: PLANT COMPATIBILITY FORM (Section 5.2 Specification) -->
-  <div class="modal-overlay" id="compatibilityModal" role="dialog" aria-modal="true" aria-labelledby="compatTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="compatTitle">Check Plant & Inverter Compatibility</h3>
-        <button class="modal-close-btn" onclick="closeModal('compatibilityModal')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
-          Submit your plant details for a free compatibility assessment. We never request inverter account passwords.
-        </p>
+    </footer>
 
-        <form id="compatForm">
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="compatName">Your Name *</label>
-              <input type="text" class="form-input" id="compatName" placeholder="Full name" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="compatContact">Phone / Email *</label>
-              <input type="text" class="form-input" id="compatContact" placeholder="Phone or email" required>
-            </div>
+    <!-- MODAL 4: PHASE 2 PORTAL PREVIEW (Section 6 & 7 Specification) -->
+    <div
+      class="modal-overlay"
+      id="portalPreviewModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="portalTitle"
+    >
+      <div class="modal-dialog" style="max-width: 860px">
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" id="portalTitle">
+              SOLServa Cloud Portal (Phase 2 Preview)
+            </h3>
+            <span class="demo-data-badge" style="margin-top: 4px"
+              >PLANNED SECURE DASHBOARD ARCHITECTURE</span
+            >
           </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="compatLocation">Plant Location *</label>
-              <input type="text" class="form-input" id="compatLocation" placeholder="City / District" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="compatPlantType">Plant Type *</label>
-              <select class="form-select" id="compatPlantType" required>
-                <option value="Rooftop - Residential">Rooftop - Residential</option>
-                <option value="Rooftop - Commercial">Rooftop - Commercial</option>
-                <option value="Rooftop - Industrial">Rooftop - Industrial</option>
-                <option value="Ground Mount">Ground Mount Plant</option>
-                <option value="EPC Portfolio">EPC Multi-Plant Portfolio</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="compatCapacity">Plant Capacity & Unit *</label>
-              <input type="text" class="form-input" id="compatCapacity" placeholder="e.g. 50 kW or 1.2 MW" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="compatInverterBrand">Inverter Brand & Model *</label>
-              <input type="text" class="form-input" id="compatInverterBrand" placeholder="e.g. Sungrow SG50CX, Growatt" required>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="compatInverterCount">Number of Inverters</label>
-              <input type="number" class="form-input" id="compatInverterCount" placeholder="e.g. 2">
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="compatLoggerModel">Existing Logger Model (If known)</label>
-              <input type="text" class="form-input" id="compatLoggerModel" placeholder="e.g. ShineWiFi, SmartLogger">
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="compatPortal">Existing Monitoring Portal (If any)</label>
-              <input type="text" class="form-input" id="compatPortal" placeholder="e.g. iSolarCloud, ShineServer">
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="compatRequiredService">Required Service *</label>
-              <select class="form-select" id="compatRequiredService" required>
-                <option value="Monitoring Only">Remote Monitoring Only</option>
-                <option value="Monitoring & Analytics">Monitoring & Analytics</option>
-                <option value="Monitoring & O&M Coordination">Monitoring & O&M Coordination</option>
-                <option value="Full EPC Partnership">Full EPC Partnership Integration</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-consent-box">
-            <input type="checkbox" id="compatConsent" required>
-            <label for="compatConsent">
-              I authorize SOLServa to review my inverter compatibility and contact me with the technical findings.
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">
-            Submit Compatibility Request &rarr;
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('portalPreviewModal')"
+            aria-label="Close Modal"
+          >
+            &times;
           </button>
-          <div id="compatStatusMsg" style="margin-top: 12px;"></div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 2: EPC PARTNER APPLICATION (Section 5.3 Specification) -->
-  <div class="modal-overlay" id="epcPartnerModal" role="dialog" aria-modal="true" aria-labelledby="epcTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="epcTitle">EPC Partner Application</h3>
-        <button class="modal-close-btn" onclick="closeModal('epcPartnerModal')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
-          Partner with SOLServa to offer co-branded monitoring, automated generation reports, and post-installation service to your customer base.
-        </p>
-
-        <form id="epcPartnerForm">
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="epcCompName">Company Name *</label>
-              <input type="text" class="form-input" id="epcCompName" placeholder="e.g. Apex Solar EPC Pvt Ltd" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="epcContactPerson">Contact Person Name *</label>
-              <input type="text" class="form-input" id="epcContactPerson" placeholder="Full name" required>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="epcEmail">Business Email *</label>
-              <input type="email" class="form-input" id="epcEmail" placeholder="e.g. partner@apexsolar.com" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="epcPhone">Mobile / Phone *</label>
-              <input type="tel" class="form-input" id="epcPhone" placeholder="e.g. 98250 12345" required>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="epcCity">City / State *</label>
-              <input type="text" class="form-input" id="epcCity" placeholder="e.g. Surat, Gujarat" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="epcPortfolioSize">Portfolio Size (Installed Plants) *</label>
-              <input type="text" class="form-input" id="epcPortfolioSize" placeholder="e.g. 25 plants / 3 MW total" required>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="epcInverters">Typical Inverter Brands Used *</label>
-              <input type="text" class="form-input" id="epcInverters" placeholder="e.g. Sungrow, Growatt, Solis" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="epcModel">Preferred Partnership Model *</label>
-              <select class="form-select" id="epcModel" required>
-                <option value="Co-branded Monitoring">Co-branded Monitoring (Joint Branding)</option>
-                <option value="White-label Portal">White-label Solution (Custom EPC Brand)</option>
-                <option value="Existing Plant Assessment">Assessment of Existing Installed Plants</option>
-                <option value="Pilot Plant First">Pilot Plant First (1-2 Plants)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="epcRequirements">Key Requirements / Notes</label>
-            <textarea class="form-textarea" id="epcRequirements" placeholder="Tell us about your client reporting requirements, expected start date, and special requests..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">
-            Submit Partner Application &rarr;
-          </button>
-          <div id="epcStatusMsg" style="margin-top: 12px;"></div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 3: SERVICE REQUEST & FAULT TICKET (Section 5.4 Specification) -->
-  <div class="modal-overlay" id="serviceRequestModal" role="dialog" aria-modal="true" aria-labelledby="srvReqTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="srvReqTitle">Submit Solar Service Request / Ticket</h3>
-        <button class="modal-close-btn" onclick="closeModal('serviceRequestModal')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
-          Report an inverter trip, communication dropout, low generation, or physical damage for triage and ticket creation.
-        </p>
-
-        <form id="serviceReqForm">
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="ticketCustomer">Customer / Company Name *</label>
-              <input type="text" class="form-input" id="ticketCustomer" placeholder="Name or firm" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="ticketContact">Contact Phone *</label>
-              <input type="tel" class="form-input" id="ticketContact" placeholder="Mobile number" required>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="ticketPlantId">Plant ID (If assigned)</label>
-              <input type="text" class="form-input" id="ticketPlantId" placeholder="e.g. SLV-GJ-004">
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="ticketLocation">Plant Location *</label>
-              <input type="text" class="form-input" id="ticketLocation" placeholder="Address / Site city" required>
-            </div>
-          </div>
-
-          <div class="form-grid-2">
-            <div class="form-field">
-              <label class="form-label" for="ticketCategory">Issue Category *</label>
-              <select class="form-select" id="ticketCategory" required>
-                <option value="Inverter Trip / Fault Code">Inverter Trip / Fault Code</option>
-                <option value="Communication Loss / Logger Offline">Communication Loss / Logger Offline</option>
-                <option value="Abnormal Low Generation">Abnormal Low Generation</option>
-                <option value="Grid Disconnection / Net Meter Issue">Grid Disconnection / Net Meter Issue</option>
-                <option value="Physical Module Damage / Hotspot">Physical Module Damage / Hotspot</option>
-                <option value="Routine Maintenance / Cleaning">Routine Maintenance / Cleaning</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="ticketTime">Estimated Issue Start Time</label>
-              <input type="text" class="form-input" id="ticketTime" placeholder="e.g. Today 10:00 AM">
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="ticketDesc">Description of Fault / Observations *</label>
-            <textarea class="form-textarea" id="ticketDesc" placeholder="Please describe any inverter LEDs, error codes, weather conditions, or unusual sounds..." required></textarea>
-          </div>
-
-          <div class="form-consent-box">
-            <input type="checkbox" id="ticketConsent" required>
-            <label for="ticketConsent">
-              I authorize SOLServa technical desk to log this service ticket and contact designated site personnel.
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">
-            Submit Service Ticket & Generate Reference &rarr;
-          </button>
-          <div id="ticketStatusMsg" style="margin-top: 12px;"></div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 4: PHASE 2 PORTAL PREVIEW (Section 6 & 7 Specification) -->
-  <div class="modal-overlay" id="portalPreviewModal" role="dialog" aria-modal="true" aria-labelledby="portalTitle">
-    <div class="modal-dialog" style="max-width: 860px;">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title" id="portalTitle">SOLServa Cloud Portal (Phase 2 Preview)</h3>
-          <span class="demo-data-badge" style="margin-top: 4px;">PLANNED SECURE DASHBOARD ARCHITECTURE</span>
         </div>
-        <button class="modal-close-btn" onclick="closeModal('portalPreviewModal')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
-          <em>Note per client specification:</em> These tabs represent the login-based monitoring application currently in development. Production authentication will launch following hardware pilot validation.
-        </p>
-
-        <div style="background: var(--bg-alt); padding: 18px; border-radius: var(--radius-md); margin-bottom: 20px;">
-          <h4 style="font-size: 1rem; color: var(--text-dark); margin-bottom: 10px;">Planned Portal Screen Architecture:</h4>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 0.85rem;">
-            <div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light);">
-              <strong>1. Portfolio Overview:</strong><br>
-              Total plant count, active capacity, online/offline status, today's generation & fleet PR.
-            </div>
-            <div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light);">
-              <strong>2. Plant Details:</strong><br>
-              Inverter telemetry, string currents, DC/AC voltages, generation charts & last update time.
-            </div>
-            <div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light);">
-              <strong>3. Active Alerts Triage:</strong><br>
-              Severity classification, timestamp, affected inverter, assignment & resolution tracking.
-            </div>
-            <div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light);">
-              <strong>4. Report Downloads:</strong><br>
-              Automated PDF & CSV downloads with exportable daily/monthly summaries.
-            </div>
-            <div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light);">
-              <strong>5. Service Tickets:</strong><br>
-              Structured lifecycle: New &rarr; Acknowledged &rarr; Assigned &rarr; Resolved &rarr; Closed.
-            </div>
-            <div style="background: #ffffff; padding: 12px; border-radius: 8px; border: 1px solid var(--border-light);">
-              <strong>6. EPC Branding Settings:</strong><br>
-              Co-branded report header settings and white-label domain configuration.
-            </div>
-          </div>
-        </div>
-
-        <div style="text-align: center; padding: 12px 0;">
-          <p style="font-size: 0.88rem; color: var(--text-dark); margin-bottom: 14px;">
-            Want early access for your EPC firm or industrial plant?
+        <div class="modal-body">
+          <p
+            style="
+              font-size: 0.88rem;
+              color: var(--text-muted);
+              margin-bottom: 20px;
+            "
+          >
+            <em>Note per client specification:</em> These tabs represent the
+            login-based monitoring application currently in development.
+            Production authentication will launch following hardware pilot
+            validation.
           </p>
-          <button type="button" class="btn btn-primary" onclick="closeModal('portalPreviewModal'); openModal('epcPartnerModal');">
-            Apply for Pilot Onboarding &rarr;
+
+          <div
+            style="
+              background: var(--bg-alt);
+              padding: 18px;
+              border-radius: var(--radius-md);
+              margin-bottom: 20px;
+            "
+          >
+            <h4
+              style="
+                font-size: 1rem;
+                color: var(--text-dark);
+                margin-bottom: 10px;
+              "
+            >
+              Planned Portal Screen Architecture:
+            </h4>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 12px;
+                font-size: 0.85rem;
+              "
+            >
+              <div
+                style="
+                  background: #ffffff;
+                  padding: 12px;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-light);
+                "
+              >
+                <strong>1. Portfolio Overview:</strong><br />
+                Total plant count, active capacity, online/offline status,
+                today's generation & fleet PR.
+              </div>
+              <div
+                style="
+                  background: #ffffff;
+                  padding: 12px;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-light);
+                "
+              >
+                <strong>2. Plant Details:</strong><br />
+                Inverter telemetry, string currents, DC/AC voltages, generation
+                charts & last update time.
+              </div>
+              <div
+                style="
+                  background: #ffffff;
+                  padding: 12px;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-light);
+                "
+              >
+                <strong>3. Active Alerts Triage:</strong><br />
+                Severity classification, timestamp, affected inverter,
+                assignment & resolution tracking.
+              </div>
+              <div
+                style="
+                  background: #ffffff;
+                  padding: 12px;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-light);
+                "
+              >
+                <strong>4. Report Downloads:</strong><br />
+                Automated PDF & CSV downloads with exportable daily/monthly
+                summaries.
+              </div>
+              <div
+                style="
+                  background: #ffffff;
+                  padding: 12px;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-light);
+                "
+              >
+                <strong>5. Service Tickets:</strong><br />
+                Structured lifecycle: New &rarr; Acknowledged &rarr; Assigned
+                &rarr; Resolved &rarr; Closed.
+              </div>
+              <div
+                style="
+                  background: #ffffff;
+                  padding: 12px;
+                  border-radius: 8px;
+                  border: 1px solid var(--border-light);
+                "
+              >
+                <strong>6. EPC Branding Settings:</strong><br />
+                Co-branded report header settings and white-label domain
+                configuration.
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; padding: 12px 0">
+            <p
+              style="
+                font-size: 0.88rem;
+                color: var(--text-dark);
+                margin-bottom: 14px;
+              "
+            >
+              Want early access for your EPC firm or industrial plant?
+            </p>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="
+                closeModal('portalPreviewModal');
+                window.location.href = 'contact.html';
+              "
+            >
+              Apply for Pilot Onboarding &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 5: TEAM BIO MODAL (Populated via JS) -->
+    <div
+      class="modal-overlay"
+      id="bioModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bioModalTitle"
+    >
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="bioModalTitle">Leadership Profile</h3>
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('bioModal')"
+            aria-label="Close Modal"
+          >
+            &times;
           </button>
         </div>
+        <div class="modal-body" id="bioModalBody"></div>
       </div>
     </div>
-  </div>
 
-  <!-- MODAL 5: TEAM BIO MODAL (Populated via JS) -->
-  <div class="modal-overlay" id="bioModal" role="dialog" aria-modal="true" aria-labelledby="bioModalTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="bioModalTitle">Leadership Profile</h3>
-        <button class="modal-close-btn" onclick="closeModal('bioModal')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body" id="bioModalBody"></div>
-    </div>
-  </div>
-
-  <!-- MODAL 6: MCA CERTIFICATE MODAL -->
-  <div class="modal-overlay" id="certModal_mca" role="dialog" aria-modal="true" aria-labelledby="mcaTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="mcaTitle">Ministry of Corporate Affairs - Incorporation Details</h3>
-        <button class="modal-close-btn" onclick="closeModal('certModal_mca')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; margin-bottom: 16px;">
-          <div style="font-weight: 800; font-size: 1.15rem; color: #064e3b; margin-bottom: 8px;">
-            SOLSERVA GREENTECH PRIVATE LIMITED
+    <!-- MODAL 6: MCA CERTIFICATE MODAL -->
+    <div
+      class="modal-overlay"
+      id="certModal_mca"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="mcaTitle"
+    >
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="mcaTitle">
+            Ministry of Corporate Affairs - Incorporation Details
+          </h3>
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('certModal_mca')"
+            aria-label="Close Modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div
+            style="
+              background: var(--bg-main);
+              border: 1px solid var(--border-light);
+              border-radius: 12px;
+              padding: 22px;
+              margin-bottom: 16px;
+            "
+          >
+            <div
+              style="
+                font-weight: 800;
+                font-size: 1.15rem;
+                color: #064e3b;
+                margin-bottom: 8px;
+              "
+            >
+              SOLSERVA GREENTECH PRIVATE LIMITED
+            </div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 14px;
+                font-size: 0.9rem;
+              "
+            >
+              <div>
+                <strong>CIN:</strong>
+                <span
+                  style="
+                    font-family: monospace;
+                    color: var(--primary);
+                    font-weight: 700;
+                  "
+                  >U35105GJ2026PTC175472</span
+                >
+              </div>
+              <div><strong>Registration No:</strong> 175472</div>
+              <div><strong>ROC Office:</strong> ROC Ahmedabad</div>
+              <div><strong>Company Class:</strong> Private Limited Company</div>
+              <div><strong>Status:</strong> Active / Incorporated</div>
+            </div>
           </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; font-size: 0.9rem;">
-            <div><strong>CIN:</strong> <span style="font-family: monospace; color: var(--primary); font-weight: 700;">U35105GJ2026PTC175472</span></div>
-            <div><strong>Registration No:</strong> 175472</div>
-            <div><strong>ROC Office:</strong> ROC Ahmedabad</div>
-            <div><strong>Company Class:</strong> Private Limited Company</div>
-            <div><strong>Status:</strong> Active / Incorporated</div>
+          <div
+            style="
+              font-size: 0.88rem;
+              color: var(--text-muted);
+              line-height: 1.6;
+            "
+          >
+            <strong>Registered Office:</strong> Shop-404 Skylark Shopping, Nr
+            BSNL Exchange, Kapodra, Varachha Road, Surat City, Gujarat -
+            395006.<br />
+            <strong>Official Contact:</strong> solservagreentechpvtltd@gmail.com
           </div>
         </div>
-        <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-          <strong>Registered Office:</strong> Shop-404 Skylark Shopping, Nr BSNL Exchange, Kapodra, Varachha Road, Surat City, Gujarat - 395006.<br>
-          <strong>Official Contact:</strong> solservagreentechpvtltd@gmail.com
-        </div>
       </div>
     </div>
-  </div>
 
-  <!-- MODAL 7: GST CERTIFICATE MODAL -->
-  <div class="modal-overlay" id="certModal_gst" role="dialog" aria-modal="true" aria-labelledby="gstTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="gstTitle">Government of India - GST Registration Details</h3>
-        <button class="modal-close-btn" onclick="closeModal('certModal_gst')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 12px; padding: 22px; margin-bottom: 16px;">
-          <div style="font-weight: 800; font-size: 1.15rem; color: #064e3b; margin-bottom: 8px;">
-            SOLSERVA GREENTECH PRIVATE LIMITED
+    <!-- MODAL 7: GST CERTIFICATE MODAL -->
+    <div
+      class="modal-overlay"
+      id="certModal_gst"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gstTitle"
+    >
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="gstTitle">
+            Government of India - GST Registration Details
+          </h3>
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('certModal_gst')"
+            aria-label="Close Modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div
+            style="
+              background: var(--bg-main);
+              border: 1px solid var(--border-light);
+              border-radius: 12px;
+              padding: 22px;
+              margin-bottom: 16px;
+            "
+          >
+            <div
+              style="
+                font-weight: 800;
+                font-size: 1.15rem;
+                color: #064e3b;
+                margin-bottom: 8px;
+              "
+            >
+              SOLSERVA GREENTECH PRIVATE LIMITED
+            </div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 14px;
+                font-size: 0.9rem;
+              "
+            >
+              <div>
+                <strong>GSTIN:</strong>
+                <span
+                  style="
+                    font-family: monospace;
+                    color: var(--primary);
+                    font-weight: 700;
+                  "
+                  >24ABTCS2095J1ZR</span
+                >
+              </div>
+              <div><strong>PAN:</strong> ABTCS2095J</div>
+              <div><strong>TAN:</strong> SRTS37196F</div>
+              <div><strong>Registration Type:</strong> Regular Taxpayer</div>
+              <div><strong>State Jurisdiction:</strong> Surat, Gujarat</div>
+            </div>
           </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; font-size: 0.9rem;">
-            <div><strong>GSTIN:</strong> <span style="font-family: monospace; color: var(--primary); font-weight: 700;">24ABTCS2095J1ZR</span></div>
-            <div><strong>PAN:</strong> ABTCS2095J</div>
-            <div><strong>TAN:</strong> SRTS37196F</div>
-            <div><strong>Registration Type:</strong> Regular Taxpayer</div>
-            <div><strong>State Jurisdiction:</strong> Surat, Gujarat</div>
+          <div
+            style="
+              font-size: 0.88rem;
+              color: var(--text-muted);
+              line-height: 1.6;
+            "
+          >
+            <strong>Principal Place of Business:</strong> Shop-404 Skylark
+            Shopping, Som Nath Kapodra Road, Opp. Mamtapark Soc-2, Kapodara,
+            Surat, Gujarat - 395006.
           </div>
         </div>
-        <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-          <strong>Principal Place of Business:</strong> Shop-404 Skylark Shopping, Som Nath Kapodra Road, Opp. Mamtapark Soc-2, Kapodara, Surat, Gujarat - 395006.
+      </div>
+    </div>
+
+    <!-- MODAL 8: LEGAL - PRIVACY POLICY -->
+    <div
+      class="modal-overlay"
+      id="legalModal_privacy"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="privTitle"
+    >
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="privTitle">Privacy Policy</h3>
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('legalModal_privacy')"
+            aria-label="Close Modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div
+          class="modal-body"
+          style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65"
+        >
+          <h4 style="color: var(--text-dark); margin-bottom: 6px">
+            1. Information We Collect
+          </h4>
+          <p style="margin-bottom: 14px">
+            SOLServa collects contact details (name, email, phone, business
+            affiliation) submitted via our enquiry, compatibility, and partner
+            application forms. When providing telemetry monitoring, technical
+            inverter operational metrics (voltages, current, kWh generation,
+            fault codes) are processed.
+          </p>
+
+          <h4 style="color: var(--text-dark); margin-bottom: 6px">
+            2. Security & Passwords
+          </h4>
+          <p style="margin-bottom: 14px">
+            We never request or store inverter user passwords in open web forms.
+            Integration is achieved via authorized OEM API keys or local
+            hardware interface access.
+          </p>
+
+          <h4 style="color: var(--text-dark); margin-bottom: 6px">
+            3. Data Usage
+          </h4>
+          <p>
+            Customer contact information and plant performance data are utilized
+            solely for service delivery, reporting, and technical diagnostics.
+            We do not sell or rent data to third parties.
+          </p>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- MODAL 8: LEGAL - PRIVACY POLICY -->
-  <div class="modal-overlay" id="legalModal_privacy" role="dialog" aria-modal="true" aria-labelledby="privTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="privTitle">Privacy Policy</h3>
-        <button class="modal-close-btn" onclick="closeModal('legalModal_privacy')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;">
-        <h4 style="color: var(--text-dark); margin-bottom: 6px;">1. Information We Collect</h4>
-        <p style="margin-bottom: 14px;">SOLServa collects contact details (name, email, phone, business affiliation) submitted via our enquiry, compatibility, and partner application forms. When providing telemetry monitoring, technical inverter operational metrics (voltages, current, kWh generation, fault codes) are processed.</p>
-        
-        <h4 style="color: var(--text-dark); margin-bottom: 6px;">2. Security & Passwords</h4>
-        <p style="margin-bottom: 14px;">We never request or store inverter user passwords in open web forms. Integration is achieved via authorized OEM API keys or local hardware interface access.</p>
+    <!-- MODAL 9: LEGAL - TERMS OF USE -->
+    <div
+      class="modal-overlay"
+      id="legalModal_terms"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="termsTitle"
+    >
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="termsTitle">Terms of Use</h3>
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('legalModal_terms')"
+            aria-label="Close Modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div
+          class="modal-body"
+          style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65"
+        >
+          <h4 style="color: var(--text-dark); margin-bottom: 6px">
+            1. Website Purpose
+          </h4>
+          <p style="margin-bottom: 14px">
+            This website provides informational material regarding the services
+            and software solutions offered by Solserva Greentech Pvt. Ltd. All
+            sample dashboards and charts are labelled demo data for illustrative
+            presentation.
+          </p>
 
-        <h4 style="color: var(--text-dark); margin-bottom: 6px;">3. Data Usage</h4>
-        <p>Customer contact information and plant performance data are utilized solely for service delivery, reporting, and technical diagnostics. We do not sell or rent data to third parties.</p>
-      </div>
-    </div>
-  </div>
+          <h4 style="color: var(--text-dark); margin-bottom: 6px">
+            2. Intellectual Property
+          </h4>
+          <p style="margin-bottom: 14px">
+            All company marks, logos, diagrams, and written specifications on
+            this site are the property of Solserva Greentech Pvt. Ltd. or their
+            respective trademark holders.
+          </p>
 
-  <!-- MODAL 9: LEGAL - TERMS OF USE -->
-  <div class="modal-overlay" id="legalModal_terms" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="termsTitle">Terms of Use</h3>
-        <button class="modal-close-btn" onclick="closeModal('legalModal_terms')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;">
-        <h4 style="color: var(--text-dark); margin-bottom: 6px;">1. Website Purpose</h4>
-        <p style="margin-bottom: 14px;">This website provides informational material regarding the services and software solutions offered by Solserva Greentech Pvt. Ltd. All sample dashboards and charts are labelled demo data for illustrative presentation.</p>
-
-        <h4 style="color: var(--text-dark); margin-bottom: 6px;">2. Intellectual Property</h4>
-        <p style="margin-bottom: 14px;">All company marks, logos, diagrams, and written specifications on this site are the property of Solserva Greentech Pvt. Ltd. or their respective trademark holders.</p>
-
-        <h4 style="color: var(--text-dark); margin-bottom: 6px;">3. Commercial Contracts</h4>
-        <p>Formal service level agreements (SLAs), subscription fees, and partner arrangements are governed exclusively by executed written contracts between the parties.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 10: LEGAL - SERVICE SCOPE & LIMITATIONS -->
-  <div class="modal-overlay" id="legalModal_scope" role="dialog" aria-modal="true" aria-labelledby="scopeTitle">
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 class="modal-title" id="scopeTitle">Service Scope & Limitations</h3>
-        <button class="modal-close-btn" onclick="closeModal('legalModal_scope')" aria-label="Close Modal">&times;</button>
-      </div>
-      <div class="modal-body" style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;">
-        <p style="margin-bottom: 12px;">Per Section 8 & 9 of the SOLServa Specification, the following operational limitations apply:</p>
-        <ul style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
-          <li>✔ <strong>Data Telemetry:</strong> Actual monitored data points and update frequencies are dependent on inverter brand, logger firmware, and local network connectivity.</li>
-          <li>✔ <strong>Inverter Compatibility:</strong> Evaluated on a case-by-case basis. No universal compatibility is implied.</li>
-          <li>✔ <strong>Warranty Guidelines:</strong> Third-party loggers should be evaluated against manufacturer warranty policies.</li>
-          <li>✔ <strong>O&M Delivery:</strong> Physical maintenance, thermography, and site visits are governed by contracted service tiers and geographic coverage.</li>
-        </ul>
+          <h4 style="color: var(--text-dark); margin-bottom: 6px">
+            3. Commercial Contracts
+          </h4>
+          <p>
+            Formal service level agreements (SLAs), subscription fees, and
+            partner arrangements are governed exclusively by executed written
+            contracts between the parties.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
+    <!-- MODAL 10: LEGAL - SERVICE SCOPE & LIMITATIONS -->
+    <div
+      class="modal-overlay"
+      id="legalModal_scope"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="scopeTitle"
+    >
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title" id="scopeTitle">
+            Service Scope & Limitations
+          </h3>
+          <button
+            class="modal-close-btn"
+            onclick="closeModal('legalModal_scope')"
+            aria-label="Close Modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div
+          class="modal-body"
+          style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65"
+        >
+          <p style="margin-bottom: 12px">
+            Per Section 8 & 9 of the SOLServa Specification, the following
+            operational limitations apply:
+          </p>
+          <ul
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              margin-bottom: 14px;
+            "
+          >
+            <li>
+              ✔ <strong>Data Telemetry:</strong> Actual monitored data points
+              and update frequencies are dependent on inverter brand, logger
+              firmware, and local network connectivity.
+            </li>
+            <li>
+              ✔ <strong>Inverter Compatibility:</strong> Evaluated on a
+              case-by-case basis. No universal compatibility is implied.
+            </li>
+            <li>
+              ✔ <strong>Warranty Guidelines:</strong> Third-party loggers should
+              be evaluated against manufacturer warranty policies.
+            </li>
+            <li>
+              ✔ <strong>O&M Delivery:</strong> Physical maintenance,
+              thermography, and site visits are governed by contracted service
+              tiers and geographic coverage.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  <!-- Modular JavaScript Logic -->
+    <!-- Modular JavaScript Logic -->
     <!-- Floating WhatsApp Action -->
-  <a href="https://wa.me/919825000000?text=Hello%20SOLServa%2C%20I%20am%20interested%20in%20solar%20plant%20monitoring%20and%20compatibility%20review." target="_blank" rel="noopener" class="floating-whatsapp" aria-label="Chat on WhatsApp" id="floatingWhatsapp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="32" height="32" fill="#ffffff" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-  </a>
+    <a
+      href="https://wa.me/919825000000?text=Hello%20SOLServa%2C%20I%20am%20interested%20in%20solar%20plant%20monitoring%20and%20compatibility%20review."
+      target="_blank"
+      rel="noopener"
+      class="floating-whatsapp"
+      aria-label="Chat on WhatsApp"
+      id="floatingWhatsapp"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        width="32"
+        height="32"
+        fill="#ffffff"
+        aria-hidden="true"
+      >
+        <path
+          d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+        />
+      </svg>
+    </a>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTopBtn" aria-label="Back to Top">
-    &#8593;
-  </button>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Back to Top">
+      &#8593;
+    </button>
 
-  <script src="assets/js/nav.js"></script>
-  <script src="assets/js/modals.js"></script>
-  <script src="assets/js/calculator.js"></script>
-  <script src="assets/js/forms.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/modals.js"></script>
+    <script src="assets/js/calculator.js"></script>
+    <script src="assets/js/forms.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

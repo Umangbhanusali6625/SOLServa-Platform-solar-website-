@@ -183,7 +183,7 @@
 }
 
 .brand-logo-img {
-  height: 40px;
+  height: 48px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(5, 150, 105, 0.16));
@@ -275,7 +275,6 @@
 .nav-link:hover {
   background: rgba(5, 150, 105, 0.08);
   color: #047857;
-  transform: translateY(-1px);
 }
 
 .nav-link.active {
@@ -311,19 +310,36 @@
   box-shadow: 0 20px 45px -10px rgba(6, 78, 59, 0.16), 0 8px 18px -4px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(5, 150, 105, 0.2);
   padding: 7px;
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 3px;
   z-index: 1010;
   opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.24s ease, transform 0.24s ease;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+}
+
+/* Invisible Hover Tunnel Bridge - eliminates gap so cursor moving to dropdown never loses hover */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -12px;
+  right: -12px;
+  height: 20px;
+  background: transparent;
+  pointer-events: auto;
+  z-index: 1;
 }
 
 .nav-item:hover .dropdown-menu,
-.nav-item:focus-within .dropdown-menu {
-  display: flex;
+.nav-item:focus-within .dropdown-menu,
+.dropdown-menu:hover {
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -496,12 +512,19 @@
 
 .nav-toggle {
   display: none;
-  background: none;
-  border: none;
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 10px;
   font-size: 1.5rem;
-  color: var(--text-dark);
+  color: #047857;
   cursor: pointer;
-  padding: 6px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.2s ease;
 }
 
 
@@ -557,13 +580,13 @@ footer::before {
 
 .footer-brand-logo,
 .footer-brand .brand-logo-img {
-  height: 44px;
+  height: 56px;
   width: auto;
   object-fit: contain;
-  background: #ffffff;
-  padding: 4px 8px;
-  border-radius: var(--radius-sm);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .footer-brand .brand-title {

@@ -157,11 +157,7 @@ function initCalculator() {
 
   if (applyCalcBtn) {
     applyCalcBtn.addEventListener('click', () => {
-      openModal('compatibilityModal');
-      const compatCap = document.getElementById('compatCapacity');
-      if (compatCap) {
-        compatCap.value = `${resSystemSize.textContent} (Est. Bill: ₹${billSlider.value}/mo)`;
-      }
+      window.location.href = 'contact.html';
     });
   }
 
