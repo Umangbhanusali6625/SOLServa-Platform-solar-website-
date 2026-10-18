@@ -81,7 +81,7 @@ He has long served with the Electricity and Water Authority, Kingdom of Bahrain,
   pragnesh: {
     name: "Pragneshkumar Dineshbhai Savaliya",
     designation: "Quality Head | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Diploma in Mechanical Engineering | Quality Management | 16+ Years Experience",
+    qualifications: "Mechanical Engineering | Quality Management | 16+ Years Experience",
     image: "assets/images/Pragnesh Savaliya.png",
     overview: `A mechanical engineering professional with over 16 years of specialized industrial experience in Quality Management Systems (QMS), quality assurance, precision engineering, and process standardization.
 
