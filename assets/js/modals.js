@@ -60,9 +60,9 @@ const teamMembersData = {
   yogesh_eng: {
     name: "Yogeshkumar Savaliya",
     designation: "Founder & Senior Electrical Consultant | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Chartered Engineer | Senior Electrical Engineer | 20+ Years Experience",
+    qualifications: "Project Management Professional (PMP) | Senior Electrical Engineer | 20+ Years Experience",
     image: "assets/images/Yogesh Savaliya.png",
-    overview: `Yogeshkumar Savaliya is a Chartered Engineer and Senior Electrical Engineer with more than 20 years of international and domestic experience in power distribution network planning, operation, and maintenance.
+    overview: `Yogeshkumar Savaliya is a Project Management Professional (PMP) and Senior Electrical Engineer with more than 20 years of international and domestic experience in power distribution network planning, operation, and maintenance.
 
 He has long served with the Electricity and Water Authority, Kingdom of Bahrain, where his portfolio covers power network development, primary substation and high-voltage cable projects, and grid connection of solar plants. He combines deep engineering mastery with project finance and is a certified Member of the Institution of Valuers, India, in Plant & Machinery.`,
     expertise: [
@@ -70,7 +70,6 @@ He has long served with the Electricity and Water Authority, Kingdom of Bahrain,
       "Grid Connection & Synchronization of Solar Plants",
       "Substation & HT/LT Cable Infrastructure Engineering",
       "Technical Due Diligence & Solar Asset Valuation",
-      "Chartered Engineer (India) - Institution of Engineers (India) (M-1845173)",
       "Project Management Professional (PMP - Member ID 2775760)",
       "Life Associate Member - Institution of Valuers (India) (A-33729)",
       "Bachelor of Engineering (B.E.), Electrical Engineering",
