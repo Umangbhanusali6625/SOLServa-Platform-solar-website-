@@ -1042,3 +1042,15 @@ body.nav-open {
   }
 }
 
+/* ===================================================================
+   CLOUDFLARE TURNSTILE SECURITY VERIFICATION WIDGET
+   =================================================================== */
+.cf-turnstile-wrap {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 65px;
+}
+
+

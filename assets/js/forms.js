@@ -30,6 +30,19 @@ function initFormSubmissions() {
         `*Service:* ${encodeURIComponent(srv)}%0A` +
         `*Details:* ${encodeURIComponent(msg || 'General consultation requested.')}`;
 
+      // Check Cloudflare Turnstile verification if present
+      const turnstileInput = genForm.querySelector('[name="cf-turnstile-response"]');
+      if (turnstileInput && turnstileInput.value === '') {
+        if (statusBox) {
+          statusBox.innerHTML = `
+            <div style="background:#fef2f2; border:1px solid #ef4444; color:#991b1b; padding:12px; border-radius:8px; margin-bottom:12px; font-size:0.88rem;">
+              ⚠️ Please complete the Cloudflare security verification before submitting.
+            </div>
+          `;
+        }
+        return;
+      }
+
       if (statusBox) {
         statusBox.innerHTML = `
           <div style="background:#ecfdf5; border:1px solid #10b981; color:#064e3b; padding:14px; border-radius:8px;">
@@ -42,6 +55,11 @@ function initFormSubmissions() {
         `;
       }
       genForm.reset();
+      if (window.turnstile) {
+        try {
+          window.turnstile.reset();
+        } catch (err) {}
+      }
     });
   }
 

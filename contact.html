@@ -57,6 +57,9 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/images/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+  
+  <!-- Cloudflare Turnstile Security Verification -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Performance Optimization: Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -409,6 +412,11 @@
             <label for="genConsent">
               I consent to SOLServa contacting me via phone, email, or WhatsApp regarding this solar service enquiry.
             </label>
+          </div>
+
+          <!-- Cloudflare Turnstile Anti-Spam Security System -->
+          <div class="form-field cf-turnstile-wrap" style="margin: 14px 0;">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAFaZaiTcEKaxKOgL" data-theme="light"></div>
           </div>
 
           <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px;">
