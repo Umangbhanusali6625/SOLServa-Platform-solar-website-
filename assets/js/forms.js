@@ -35,7 +35,7 @@ function initFormSubmissions() {
           <div style="background:#ecfdf5; border:1px solid #10b981; color:#064e3b; padding:14px; border-radius:8px;">
             <strong>✓ Enquiry Logged Successfully (Ref: ${refNo})</strong>
             <p style="font-size:0.85rem; margin:6px 0 10px;">Our technical team will review your requirements and reach out within 24 hours.</p>
-            <a href="https://wa.me/919825000000?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
+            <a href="https://wa.me/919033983133?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
               Connect Instantly on WhatsApp &rarr;
             </a>
           </div>
@@ -75,7 +75,7 @@ function initFormSubmissions() {
           <div style="background:#ecfdf5; border:1px solid #10b981; color:#064e3b; padding:14px; border-radius:8px;">
             <strong>✓ Compatibility Request Registered (Ref: ${refNo})</strong>
             <p style="font-size:0.85rem; margin:6px 0 10px;">We are checking our database for ${brand}. You can also send inverter nameplate photos on WhatsApp:</p>
-            <a href="https://wa.me/919825000000?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
+            <a href="https://wa.me/919033983133?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
               Send Details to Technical Desk &rarr;
             </a>
           </div>
@@ -113,7 +113,7 @@ function initFormSubmissions() {
           <div style="background:#ecfdf5; border:1px solid #10b981; color:#064e3b; padding:14px; border-radius:8px;">
             <strong>✓ Partner Application Received (Ref: ${refNo})</strong>
             <p style="font-size:0.85rem; margin:6px 0 10px;">Our partnership coordinator will review your portfolio details and schedule a presentation.</p>
-            <a href="https://wa.me/919825000000?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
+            <a href="https://wa.me/919033983133?text=${waText}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
               Connect on WhatsApp &rarr;
             </a>
           </div>
@@ -151,7 +151,7 @@ function initFormSubmissions() {
           <div style="background:#fffbeb; border:1px solid #f59e0b; color:#92400e; padding:14px; border-radius:8px;">
             <strong>✓ Ticket Logged: ${ticketNo} [Status: New &rarr; Acknowledged]</strong>
             <p style="font-size:0.85rem; margin:6px 0 10px;">Assigned to Technical On-Call Engineer. For urgent grid trips, please ping directly on WhatsApp with ticket ID:</p>
-            <a href="https://wa.me/919825000000?text=${waText}" target="_blank" rel="noopener" class="btn btn-solar" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
+            <a href="https://wa.me/919033983133?text=${waText}" target="_blank" rel="noopener" class="btn btn-solar" style="display:inline-flex; padding:8px 14px; font-size:0.85rem;">
               Dispatch Alert via WhatsApp &rarr;
             </a>
           </div>

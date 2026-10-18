@@ -22,7 +22,7 @@
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
-    <link rel="canonical" href="https://solserva.com/" />
+    <link rel="canonical" href="https://solserva.in/" />
 
     <!-- Local Search & Geo-Targeting (Gujarat / Surat / India) -->
     <meta name="geo.region" content="IN-GJ" />
@@ -48,7 +48,7 @@
     />
     <meta
       property="og:image:secure_url"
-      content="https://solserva.com/assets/images/SOLSERVA Green Energy Emblem.png"
+      content="https://solserva.in/assets/images/SOLSERVA Green Energy Emblem.png"
     />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -57,7 +57,7 @@
       property="og:image:alt"
       content="SOLServa Smart Solar Monitoring Platform"
     />
-    <meta property="og:url" content="https://solserva.com/" />
+    <meta property="og:url" content="https://solserva.in/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_IN" />
 
@@ -76,16 +76,29 @@
       content="assets/images/SOLSERVA Green Energy Emblem.png"
     />
 
-    <!-- Favicon -->
+    <!-- PWA & Mobile Web App Meta -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#064e3b" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="SOLServa" />
     <link
       rel="icon"
-      type="image/jpeg"
-      href="assets/images/SOLSERVA Green Energy Emblem.png"
+      type="image/png"
+      sizes="192x192"
+      href="assets/images/icon-192.png"
     />
     <link
-      rel="apple-touch-icon"
-      href="assets/images/SOLSERVA Green Energy Emblem.png"
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="assets/images/favicon-64.png"
     />
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png" />
 
     <!-- Performance Optimization: Preconnect & Font Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -106,15 +119,15 @@
         "@graph": [
           {
             "@type": ["LocalBusiness", "Corporation"],
-            "@id": "https://solserva.com/#organization",
+            "@id": "https://solserva.in/#organization",
             "name": "SOLServa Greentech Private Limited",
             "legalName": "SOLSERVA GREENTECH PRIVATE LIMITED",
             "alternateName": ["SOLServa", "Solserva Solar Monitoring"],
-            "url": "https://solserva.com/",
-            "logo": "https://solserva.com/assets/images/SOLSERVA Green Energy Emblem.png",
-            "image": "https://solserva.com/assets/images/SOLSERVA Green Energy Emblem.png",
+            "url": "https://solserva.in/",
+            "logo": "https://solserva.in/assets/images/SOLSERVA Green Energy Emblem.png",
+            "image": "https://solserva.in/assets/images/SOLSERVA Green Energy Emblem.png",
             "description": "SOLServa Greentech provides smart solar plant monitoring systems in Gujarat and commercial solar O&M software across India. Offering multi-brand inverter telemetry, automated daily PR reports, and white-label portals for Solar EPCs.",
-            "telephone": "+91-9825000000",
+            "telephone": "+91-9033983133",
             "email": "solservagreentechpvtltd@gmail.com",
             "taxID": "24ABTCS2095J1ZR",
             "vatID": "24ABTCS2095J1ZR",
@@ -159,38 +172,38 @@
           },
           {
             "@type": "ItemList",
-            "@id": "https://solserva.com/#services-list",
+            "@id": "https://solserva.in/#services-list",
             "name": "SOLServa Solar Monitoring & O&M Solutions",
             "itemListElement": [
               {
                 "@type": "Service",
                 "name": "Solar Monitoring System Gujarat",
                 "description": "Continuous telemetry collection, generation tracking, inverter status, and fault alarms across Gujarat & India.",
-                "provider": { "@id": "https://solserva.com/#organization" }
+                "provider": { "@id": "https://solserva.in/#organization" }
               },
               {
                 "@type": "Service",
                 "name": "Commercial Solar O&M Software India",
                 "description": "Automated ticketing lifecycle, maintenance coordination, downtime triage, and multi-site fleet management.",
-                "provider": { "@id": "https://solserva.com/#organization" }
+                "provider": { "@id": "https://solserva.in/#organization" }
               },
               {
                 "@type": "Service",
                 "name": "Solar Performance Analytics",
                 "description": "Historical generation benchmarking, inverter-level PR disparity detection, and degradation trend analysis.",
-                "provider": { "@id": "https://solserva.com/#organization" }
+                "provider": { "@id": "https://solserva.in/#organization" }
               },
               {
                 "@type": "Service",
                 "name": "Data Logger & Inverter Connectivity Solutions",
                 "description": "Cloud API, 4G wireless loggers, and RS485 Modbus RTU telemetry integrations for solar inverters.",
-                "provider": { "@id": "https://solserva.com/#organization" }
+                "provider": { "@id": "https://solserva.in/#organization" }
               }
             ]
           },
           {
             "@type": "FAQPage",
-            "@id": "https://solserva.com/#faq",
+            "@id": "https://solserva.in/#faq",
             "mainEntity": [
               {
                 "@type": "Question",
@@ -333,7 +346,7 @@
             solservagreentechpvtltd@gmail.com
           </a>
 
-          <a href="https://wa.me/919825000000" target="_blank" rel="noopener">
+          <a href="https://wa.me/919033983133" target="_blank" rel="noopener">
             <svg
               viewBox="0 0 24 24"
               width="13"
@@ -618,7 +631,10 @@
           <div class="trust-item-icon">🛡️</div>
           <div class="trust-item-text">
             <strong>Chartered Engineer &amp; PMP Led</strong>
-            <span>Institution of Engineers &amp; Valuers (India) | Project Management Professional (PMP)</span>
+            <span
+              >Institution of Engineers &amp; Valuers (India) | Project
+              Management Professional (PMP)</span
+            >
           </div>
         </div>
 
@@ -2299,7 +2315,9 @@
               <span class="team-exp-badge">20+ Yrs Experience</span>
             </div>
             <div class="team-card-body">
-              <span class="team-role">Founder & Senior Electrical Consultant</span>
+              <span class="team-role"
+                >Founder & Senior Electrical Consultant</span
+              >
               <h4 class="team-name">Yogeshkumar Savaliya</h4>
               <div class="team-qualification">
                 Chartered Engineer | Senior Electrical Engineer (B.E., MBA, PMP)
@@ -2370,7 +2388,7 @@
               <span class="team-role">Managing Director</span>
               <h4 class="team-name">Kiritkumar D. Savaliya</h4>
               <div class="team-qualification">
-                Chartered Accountant (CA) | Finance & Strategic Advisory
+                Chartered Accountant (CA) | Finance & Strategic Advisor
               </div>
               <p class="team-brief">
                 Specializes in corporate finance, project ROI viability,
@@ -2404,7 +2422,7 @@
               <span class="team-role">Managing Director</span>
               <h4 class="team-name">Adv. Hiteshbhai D. Maniya</h4>
               <div class="team-qualification">
-                Advocate | Legal & Corporate Advisory Professional
+                Advocate | Legal & Corporate Advisor
               </div>
               <p class="team-brief">
                 Over 18 years in legal advisory, regulatory compliance,
@@ -2863,11 +2881,11 @@
               <div class="channel-details">
                 <strong>Support & WhatsApp Desk:</strong>
                 <a
-                  href="https://wa.me/919825000000"
+                  href="https://wa.me/919033983133"
                   target="_blank"
                   rel="noopener"
                 >
-                  +91 98250 XXXXX / Click to Chat
+                  +91 90339 83133 / Click to Chat
                 </a>
               </div>
             </div>
@@ -2987,7 +3005,7 @@
                   type="tel"
                   class="form-input"
                   id="genPhone"
-                  placeholder="e.g. 98250 12345"
+                  placeholder="e.g. 90339 83133"
                   required
                 />
               </div>
@@ -3220,7 +3238,7 @@
 
     <!-- FLOATING ACTIONS (WhatsApp & Back to Top) -->
     <a
-      href="https://wa.me/919825000000?text=Hello%20SOLServa%2C%20I%20am%20interested%20in%20solar%20plant%20monitoring%20and%20compatibility%20review."
+      href="https://wa.me/919033983133?text=Hello%20SOLServa%2C%20I%20am%20interested%20in%20solar%20plant%20monitoring%20and%20compatibility%20review."
       target="_blank"
       rel="noopener"
       class="floating-whatsapp"

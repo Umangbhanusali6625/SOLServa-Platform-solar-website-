@@ -14,11 +14,13 @@ Official responsive website for SOLServa - Solar Monitoring & Clean Energy Solut
 - `resources.html` - Resources & FAQs
 - `contact.html` - Contact us
 
-## Technologies Used
+## Technologies & Features
 
-- HTML5
-- CSS3 (Vanilla CSS)
-- JavaScript (Vanilla JS)
+- HTML5 (Semantic & Schema.org JSON-LD structured data)
+- CSS3 (Vanilla CSS with responsive glassmorphism & design tokens)
+- JavaScript (Modular Vanilla JS)
+- Progressive Web App (PWA) with `manifest.json` and Service Worker (`sw.js`)
+- DPDP Act 2023 & Indian IT Regulations Cookie & Privacy Compliance Banner
 
 ## How to Run
 

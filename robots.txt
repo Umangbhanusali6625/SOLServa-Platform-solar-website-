@@ -1,8 +1,8 @@
 # Robots.txt for SOLServa Greentech Pvt Ltd
-# https://solserva.com/
+# https://solserva.in/
 
 User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://solserva.com/sitemap.xml
+Sitemap: https://solserva.in/sitemap.xml

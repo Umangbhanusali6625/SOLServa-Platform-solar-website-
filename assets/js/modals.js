@@ -100,7 +100,7 @@ At Solserva Greentech Pvt. Ltd., he oversees structural integrity, mounting hard
   kirit: {
     name: "Kiritkumar Dineshbhai Savaliya",
     designation: "Managing Director | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Chartered Accountant (CA) | 16+ Years Industry Experience",
+    qualifications: "Chartered Accountant (CA) | Finance & Strategic Advisor | 16+ Years Experience",
     image: "assets/images/Kirit Savaliya.png",
     overview: `A qualified Chartered Accountant with over 16 years of extensive experience in corporate finance, financial management, taxation, corporate governance, and strategic business advisory.
 
@@ -121,7 +121,7 @@ As Managing Director at Solserva Greentech Pvt. Ltd., he brings strong financial
   hitesh: {
     name: "Adv. Hiteshbhai Devrajbhai Maniya",
     designation: "Managing Director | Solserva Greentech Pvt. Ltd.",
-    qualifications: "Advocate | Legal & Corporate Advisory Professional | 18+ Years Experience",
+    qualifications: "Advocate | Legal & Corporate Advisor | 18+ Years Experience",
     image: "assets/images/Hitesh Maniya.jpeg",
     overview: `An experienced Advocate with over 18 years of professional experience in the legal and statutory sector, bringing extensive knowledge of corporate legal advisory, regulatory compliance, legal documentation, contractual matters, and commercial business laws.
 
