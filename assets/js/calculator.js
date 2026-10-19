@@ -164,3 +164,60 @@ function initCalculator() {
   calculateSolar();
 }
 
+/* ===================================================================
+   DATA LOGGER DEVICE IMAGE SWITCHER
+   =================================================================== */
+function switchLoggerDevice(type, btnElement) {
+  const devices = {
+    usb: {
+      img: 'assets/images/Stick Logger with USB Connector.png',
+      alt: 'SOLServa Stick Logger with USB Connector',
+      caption: 'SOLServa USB Stick Logger',
+      subcaption: 'Direct Inverter USB Port Telemetry • 4G LTE / WiFi Dual Band',
+      badge: 'USB 2.0 Inverter Port'
+    },
+    rs485: {
+      img: 'assets/images/SOLSERVA GreenTech Stick Logger.png',
+      alt: 'SOLSERVA GreenTech Stick Logger RS-485 Modbus',
+      caption: 'SOLServa RS-485 Modbus Logger',
+      subcaption: 'Industrial Multi-Drop Serial Gateway • Inverters & Energy Meters',
+      badge: 'RS485 / DB9 Serial'
+    },
+    junction: {
+      img: 'assets/images/Solserva Stick Logger Junction Box.png',
+      alt: 'Solserva Stick Logger Junction Box Outdoor Field Setup',
+      caption: 'Field Junction Box Deployment',
+      subcaption: 'Heavy-Duty IP65 Weatherproof Enclosure • Rooftop & Ground Plants',
+      badge: 'IP65 Weatherproof Field Unit'
+    }
+  };
+
+  const selected = devices[type];
+  if (!selected) return;
+
+  document.querySelectorAll('.logger-device-showcase-box').forEach(box => {
+    const imgEl = box.querySelector('.logger-device-img-display img');
+    const captionEl = box.querySelector('.logger-device-caption');
+    const subcaptionEl = box.querySelector('.logger-device-subcaption');
+    const badgeEl = box.querySelector('.logger-device-badge-top');
+
+    if (imgEl) {
+      imgEl.style.opacity = '0';
+      setTimeout(() => {
+        imgEl.src = selected.img;
+        imgEl.alt = selected.alt;
+        imgEl.style.opacity = '1';
+      }, 150);
+    }
+    if (captionEl) captionEl.textContent = selected.caption;
+    if (subcaptionEl) subcaptionEl.textContent = selected.subcaption;
+    if (badgeEl) badgeEl.innerHTML = `<span>⚡</span> ${selected.badge}`;
+
+    box.querySelectorAll('.logger-thumb-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-device') === type);
+    });
+  });
+}
+window.switchLoggerDevice = switchLoggerDevice;
+
+

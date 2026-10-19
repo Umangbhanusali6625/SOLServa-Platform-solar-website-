@@ -23,6 +23,8 @@
       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
     <link rel="canonical" href="https://solserva.in/" />
+    <!-- Google Search Console Ownership Verification -->
+    <meta name="google-site-verification" content="google11c246af20143eba" />
 
     <!-- Local Search & Geo-Targeting (Gujarat / Surat / India) -->
     <meta name="geo.region" content="IN-GJ" />
@@ -1722,14 +1724,166 @@
           </div>
 
           <div>
-            <img
-              src="assets/images/iot-monitoring.png"
-              alt="Data Logger Integration"
-              style="
-                border-radius: var(--radius-lg);
-                box-shadow: var(--shadow-md);
-              "
-            />
+            <div class="logger-device-showcase-box">
+              <span class="logger-device-badge-top"><span>⚡</span> USB 2.0 Inverter Port</span>
+              <div class="logger-device-img-display">
+                <img
+                  src="assets/images/Stick Logger with USB Connector.png"
+                  alt="SOLServa Stick Logger with USB Connector"
+                  loading="lazy"
+                />
+              </div>
+              <div class="logger-device-caption">SOLServa USB Stick Logger</div>
+              <div class="logger-device-subcaption">Direct Inverter USB Port Telemetry • 4G LTE / WiFi Dual Band</div>
+              
+              <div class="logger-device-thumbs-nav">
+                <button
+                  type="button"
+                  class="logger-thumb-btn active"
+                  data-device="usb"
+                  onclick="switchLoggerDevice('usb', this)"
+                  title="USB Stick Logger"
+                >
+                  <img src="assets/images/Stick Logger with USB Connector.png" alt="USB Logger" />
+                  <span>USB Stick</span>
+                </button>
+                <button
+                  type="button"
+                  class="logger-thumb-btn"
+                  data-device="rs485"
+                  onclick="switchLoggerDevice('rs485', this)"
+                  title="RS-485 Modbus Logger"
+                >
+                  <img src="assets/images/SOLSERVA GreenTech Stick Logger.png" alt="RS485 Logger" />
+                  <span>RS-485 Serial</span>
+                </button>
+                <button
+                  type="button"
+                  class="logger-thumb-btn"
+                  data-device="junction"
+                  onclick="switchLoggerDevice('junction', this)"
+                  title="Field Junction Box"
+                >
+                  <img src="assets/images/Solserva Stick Logger Junction Box.png" alt="Junction Box" />
+                  <span>Junction Box</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full Width Hardware Fleet Grid (3 Devices) -->
+          <div class="logger-fleet-wrapper">
+            <div class="logger-fleet-header">
+              <span class="section-tag" style="margin-bottom: 8px">Hardware Fleet & Deployments</span>
+              <h4>Purpose-Built SOLServa Data Logger Models</h4>
+              <p>
+                Engineered in India for industrial reliability, high ambient temperatures, and continuous solar telemetry sync across Gujarat & India.
+              </p>
+            </div>
+
+            <div class="logger-fleet-grid">
+              <!-- Device 1: USB Stick Logger -->
+              <div class="logger-fleet-card">
+                <div class="logger-fleet-card-img-wrap">
+                  <img
+                    src="assets/images/Stick Logger with USB Connector.png"
+                    alt="SOLServa Stick Logger with USB Connector"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="logger-fleet-card-badge logger-badge-usb">⚡ USB 2.0 Inverter Port</span>
+                <h5>SOLServa USB Stick Logger</h5>
+                <p class="logger-fleet-card-desc">
+                  Direct plug-and-play stick logger designed for string inverters equipped with external USB telemetry ports.
+                </p>
+                <ul class="logger-fleet-specs">
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Interface:</strong> USB Type-A with weather gasket
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Telemetry:</strong> 4G LTE Cat-1 / 2.4GHz WiFi
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Diagnostic LEDs:</strong> READY, NET, COM
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Design:</strong> Certified Make in India build
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Device 2: RS485 Modbus Logger -->
+              <div class="logger-fleet-card">
+                <div class="logger-fleet-card-img-wrap">
+                  <img
+                    src="assets/images/SOLSERVA GreenTech Stick Logger.png"
+                    alt="SOLSERVA GreenTech Stick Logger RS-485 Modbus"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="logger-fleet-card-badge logger-badge-rs485">📡 RS485 / DB9 Serial</span>
+                <h5>SOLServa RS-485 Modbus Logger</h5>
+                <p class="logger-fleet-card-desc">
+                  Industrial serial communication gateway engineered for multi-inverter string daisy chains and bidirectional energy meters.
+                </p>
+                <ul class="logger-fleet-specs">
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Protocol:</strong> Modbus RTU / Modbus ASCII
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Capacity:</strong> Multi-drop up to 32 inverter nodes
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Mounting:</strong> Heavy-duty screw-lock flange bracket
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Protection:</strong> Built-in ESD & optical isolation
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Device 3: Field Junction Box -->
+              <div class="logger-fleet-card">
+                <div class="logger-fleet-card-img-wrap">
+                  <img
+                    src="assets/images/Solserva Stick Logger Junction Box.png"
+                    alt="Solserva Stick Logger Junction Box Outdoor Field Setup"
+                    loading="lazy"
+                  />
+                </div>
+                <span class="logger-fleet-card-badge logger-badge-ip65">🛡️ IP65 Weatherproof Enclosure</span>
+                <h5>Field Junction Box Setup</h5>
+                <p class="logger-fleet-card-desc">
+                  Heavy-duty on-site deployment configuration for commercial rooftops and ground-mount utility solar installations.
+                </p>
+                <ul class="logger-fleet-specs">
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Enclosure:</strong> UV-resistant IP65 sealed housing
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Wiring:</strong> Sealed conduit glands & surge suppression
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Field LEDs:</strong> POWER, COM, SERV, VUV telemetry
+                  </li>
+                  <li>
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/></svg>
+                    <strong>Deployment:</strong> Wall / Unistrut adjacent to ACDB/DCDB
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
