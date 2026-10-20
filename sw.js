@@ -1,35 +1,26 @@
 /**
  * SOLSERVA GREENTECH - Progressive Web App (PWA) Service Worker
- * Version: 3.0.0
+ * Version: 3.1.0 (High Performance Edition)
  */
 
-const CACHE_NAME = 'solserva-pwa-v3';
+const CACHE_NAME = 'solserva-pwa-v4';
 
 const STATIC_ASSETS = [
   './',
   './index.html',
-  './about.html',
-  './services.html',
-  './solutions.html',
-  './epc-partners.html',
-  './how-it-works.html',
-  './calculator.html',
-  './resources.html',
-  './contact.html',
   './manifest.json',
   './assets/css/base.css',
-  './assets/css/components.css',
   './assets/css/layout.css',
+  './assets/css/components.css',
   './assets/css/sections.css',
   './assets/css/style.css',
-  './assets/js/main.js',
   './assets/js/nav.js',
   './assets/js/modals.js',
   './assets/js/calculator.js',
   './assets/js/forms.js',
-  './assets/images/Logo.png',
-  './assets/images/icon-192.png',
-  './assets/images/icon-512.png'
+  './assets/js/main.js',
+  './assets/images/favicon-64.png',
+  './assets/images/icon-192.png'
 ];
 
 // 1. Install Event - Cache Core Shell

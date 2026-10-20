@@ -26,13 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initCookieBanner();
 });
 
-// 1. PWA Service Worker Registration with Immediate Update Check
+// 1. PWA Service Worker Registration with Background Update Check
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js')
       .then(reg => {
-        // Automatically check for worker updates on every page view
-        reg.update();
+        // Defer update check until browser network is completely idle
+        setTimeout(() => {
+          try { reg.update(); } catch (e) {}
+        }, 3500);
         console.log('[SOLServa PWA] Service Worker active with scope:', reg.scope);
       })
       .catch(err => {
