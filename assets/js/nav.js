@@ -139,26 +139,31 @@ function initScrollEffects() {
 }
 
 /* ===================================================================
-   10. INSTANT PAGE TRANSITIONS & SMART PREFETCH ENGINE
+   10. INSTANT PAGE TRANSITIONS & INTERACTION PREFETCH ENGINE
    =================================================================== */
 function initInstantPageTransitions() {
+  // If the browser natively supports Speculation Rules, it handles hover prefetching natively
+  const hasNativeSpeculation =
+    typeof HTMLScriptElement !== 'undefined' &&
+    HTMLScriptElement.supports &&
+    HTMLScriptElement.supports('speculationrules');
+
   const prefetched = new Set();
 
-  function prefetchUrl(url) {
-    if (!url || prefetched.has(url)) return;
+  function prefetchOnInteraction(url, isKeyboard = false) {
+    if (!url) return;
     if (url.startsWith('#') || url.startsWith('javascript:') || url.startsWith('tel:') || url.startsWith('mailto:')) return;
     if (url.startsWith('http') && !url.includes(window.location.hostname)) return;
 
+    // Speculation Rules with moderate eagerness handles pointer hover/touch, but not keyboard focus.
+    // If native Speculation Rules is active on hover/touch, let the browser handle it.
+    if (hasNativeSpeculation && !isKeyboard) return;
+
+    if (prefetched.has(url)) return;
     prefetched.add(url);
 
-    // 1. Browser Native Link Prefetch
-    const link = document.createElement('link');
-    link.rel = 'prefetch';
-    link.href = url;
-    link.as = 'document';
-    document.head.appendChild(link);
-
-    // 2. Pre-cache into Service Worker for 0ms instantaneous switch
+    // Fallback for keyboard focus and browsers without Speculation Rules (e.g. Safari / Firefox):
+    // Single low-priority fetch into the Cache API
     if ('caches' in window) {
       fetch(url, { priority: 'low' }).then((res) => {
         if (res.ok) {
@@ -168,39 +173,20 @@ function initInstantPageTransitions() {
     }
   }
 
-  // A. Prefetch immediately on hover or touch (150-300ms before click completes)
-  const handleInteraction = (e) => {
+  // Prefetch strictly upon navigation signals (hover, touchstart, or focus)
+  const handleNavigationSignal = (e) => {
     const anchor = e.target.closest('a[href]');
     if (!anchor) return;
     const href = anchor.getAttribute('href');
     if (!href) return;
     const cleanUrl = href.split('#')[0];
     if (cleanUrl && cleanUrl.endsWith('.html')) {
-      prefetchUrl(cleanUrl);
+      const isKeyboard = e.type === 'focusin';
+      prefetchOnInteraction(cleanUrl, isKeyboard);
     }
   };
 
-  document.addEventListener('mouseover', handleInteraction, { passive: true });
-  document.addEventListener('touchstart', handleInteraction, { passive: true });
-
-  // B. Background prefetch when page is idle
-  const CORE_PAGES = [
-    'contact.html',
-    'services.html',
-    'solutions.html',
-    'epc-partners.html',
-    'how-it-works.html',
-    'calculator.html',
-    'resources.html',
-    'about.html'
-  ];
-
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  setTimeout(() => {
-    CORE_PAGES.forEach((page, index) => {
-      if (page !== currentPath) {
-        setTimeout(() => prefetchUrl(page), index * 100);
-      }
-    });
-  }, 1000);
+  document.addEventListener('mouseover', handleNavigationSignal, { passive: true });
+  document.addEventListener('touchstart', handleNavigationSignal, { passive: true });
+  document.addEventListener('focusin', handleNavigationSignal, { passive: true });
 }

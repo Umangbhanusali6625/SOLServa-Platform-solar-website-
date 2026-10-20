@@ -65,18 +65,26 @@ self.addEventListener('fetch', (event) => {
   if (request.mode === 'navigate') {
     event.respondWith(
       caches.match(request).then((cachedResponse) => {
-        const networkFetch = fetch(request)
+        // Background cache revalidation promise registered with event.waitUntil
+        const refreshPromise = fetch(request)
           .then((networkResponse) => {
             if (networkResponse && networkResponse.status === 200) {
               const clone = networkResponse.clone();
-              caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+              return caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
             }
-            return networkResponse;
           })
-          .catch(() => cachedResponse || caches.match('./index.html'));
+          .catch((err) => {
+            console.warn('[PWA ServiceWorker] Navigation background refresh:', err);
+          });
 
-        // If page is in cache (or prefetched), serve IMMEDIATELY for instant transitions!
-        return cachedResponse || networkFetch;
+        // Keep the Service Worker process alive until the cache update completes
+        event.waitUntil(refreshPromise);
+
+        // Serve cached page immediately if available (0ms instant switch), else wait for network
+        return (
+          cachedResponse ||
+          fetch(request).catch(() => caches.match('./index.html'))
+        );
       })
     );
     return;
