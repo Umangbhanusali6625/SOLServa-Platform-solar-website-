@@ -1,9 +1,9 @@
 /**
  * SOLSERVA GREENTECH - Progressive Web App (PWA) Service Worker
- * Version: 1.0.0
+ * Version: 2.0.0
  */
 
-const CACHE_NAME = 'solserva-pwa-v1';
+const CACHE_NAME = 'solserva-pwa-v2';
 
 const STATIC_ASSETS = [
   './',
