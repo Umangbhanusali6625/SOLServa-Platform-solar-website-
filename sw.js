@@ -3,11 +3,13 @@
  * Version: 3.1.0 (High Performance Edition)
  */
 
-const CACHE_NAME = 'solserva-pwa-v4';
+const CACHE_NAME = 'solserva-pwa-v5';
 
 const STATIC_ASSETS = [
   './',
   './index.html',
+  './contact.html',
+  './services.html',
   './manifest.json',
   './assets/css/base.css',
   './assets/css/layout.css',
@@ -59,20 +61,23 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // 3.1 Handle HTML navigation (Network first, fallback to cache)
+  // 3.1 Handle HTML navigation (Instant 0ms Page Switch with Background Revalidation)
   if (request.mode === 'navigate') {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-          return response;
-        })
-        .catch(() => {
-          return caches.match(request).then((cachedResponse) => {
-            return cachedResponse || caches.match('./index.html');
-          });
-        })
+      caches.match(request).then((cachedResponse) => {
+        const networkFetch = fetch(request)
+          .then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              const clone = networkResponse.clone();
+              caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+            }
+            return networkResponse;
+          })
+          .catch(() => cachedResponse || caches.match('./index.html'));
+
+        // If page is in cache (or prefetched), serve IMMEDIATELY for instant transitions!
+        return cachedResponse || networkFetch;
+      })
     );
     return;
   }

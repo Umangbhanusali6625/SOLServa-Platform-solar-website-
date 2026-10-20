@@ -114,6 +114,28 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     />
 
+    <!-- Native Browser Instant Page Speculation Rules -->
+    <script type="speculationrules">
+      {
+        "prefetch": [
+          {
+            "source": "list",
+            "urls": [
+              "index.html",
+              "contact.html",
+              "services.html",
+              "epc-partners.html",
+              "how-it-works.html",
+              "calculator.html",
+              "resources.html",
+              "about.html"
+            ],
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
+
     <!-- Modular CSS Suite -->
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />

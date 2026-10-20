@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof initServiceTabs === 'function') initServiceTabs();
   if (typeof initFaqAccordion === 'function') initFaqAccordion();
   if (typeof initFormSubmissions === 'function') initFormSubmissions();
+  if (typeof initInstantPageTransitions === 'function') initInstantPageTransitions();
   
   // Highlight active nav item based on current page pathname
   highlightActiveNavLink();

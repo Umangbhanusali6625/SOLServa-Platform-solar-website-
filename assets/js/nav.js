@@ -137,3 +137,70 @@ function initScrollEffects() {
     });
   }
 }
+
+/* ===================================================================
+   10. INSTANT PAGE TRANSITIONS & SMART PREFETCH ENGINE
+   =================================================================== */
+function initInstantPageTransitions() {
+  const prefetched = new Set();
+
+  function prefetchUrl(url) {
+    if (!url || prefetched.has(url)) return;
+    if (url.startsWith('#') || url.startsWith('javascript:') || url.startsWith('tel:') || url.startsWith('mailto:')) return;
+    if (url.startsWith('http') && !url.includes(window.location.hostname)) return;
+
+    prefetched.add(url);
+
+    // 1. Browser Native Link Prefetch
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = url;
+    link.as = 'document';
+    document.head.appendChild(link);
+
+    // 2. Pre-cache into Service Worker for 0ms instantaneous switch
+    if ('caches' in window) {
+      fetch(url, { priority: 'low' }).then((res) => {
+        if (res.ok) {
+          caches.open('solserva-pwa-v5').then((cache) => cache.put(url, res));
+        }
+      }).catch(() => {});
+    }
+  }
+
+  // A. Prefetch immediately on hover or touch (150-300ms before click completes)
+  const handleInteraction = (e) => {
+    const anchor = e.target.closest('a[href]');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+    const cleanUrl = href.split('#')[0];
+    if (cleanUrl && cleanUrl.endsWith('.html')) {
+      prefetchUrl(cleanUrl);
+    }
+  };
+
+  document.addEventListener('mouseover', handleInteraction, { passive: true });
+  document.addEventListener('touchstart', handleInteraction, { passive: true });
+
+  // B. Background prefetch when page is idle
+  const CORE_PAGES = [
+    'contact.html',
+    'services.html',
+    'solutions.html',
+    'epc-partners.html',
+    'how-it-works.html',
+    'calculator.html',
+    'resources.html',
+    'about.html'
+  ];
+
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  setTimeout(() => {
+    CORE_PAGES.forEach((page, index) => {
+      if (page !== currentPath) {
+        setTimeout(() => prefetchUrl(page), index * 100);
+      }
+    });
+  }, 1000);
+}
