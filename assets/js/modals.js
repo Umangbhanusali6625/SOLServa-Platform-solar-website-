@@ -61,7 +61,7 @@ const teamMembersData = {
     name: "Yogeshkumar Savaliya",
     designation: "Founder & Senior Electrical Consultant | Solserva Greentech Pvt. Ltd.",
     qualifications: "Project Management Professional (PMP) | Senior Electrical Engineer | 20+ Years Experience",
-    image: "assets/images/Yogesh Savaliya.svg",
+    image: "assets/images/Yogesh Savaliya.webp",
     overview: `Yogeshkumar Savaliya is a Project Management Professional (PMP) and Senior Electrical Engineer with more than 20 years of international and domestic experience in power distribution network planning, operation, and maintenance.
 
 He has long served with the Electricity and Water Authority, Kingdom of Bahrain, where his portfolio covers power network development, primary substation and high-voltage cable projects, and grid connection of solar plants. He combines deep engineering mastery with project finance and is a certified Member of the Institution of Valuers, India, in Plant & Machinery.`,
@@ -81,7 +81,7 @@ He has long served with the Electricity and Water Authority, Kingdom of Bahrain,
     name: "Pragneshkumar Dineshbhai Savaliya",
     designation: "Quality Head | Solserva Greentech Pvt. Ltd.",
     qualifications: "Mechanical Engineering | Quality Management | 16+ Years Experience",
-    image: "assets/images/Pragnesh Savaliya.svg",
+    image: "assets/images/Pragnesh Savaliya.webp",
     overview: `A mechanical engineering professional with over 16 years of specialized industrial experience in Quality Management Systems (QMS), quality assurance, precision engineering, and process standardization.
 
 At Solserva Greentech Pvt. Ltd., he oversees structural integrity, mounting hardware compliance, supplier quality benchmarking, and technical performance standardization.`,
@@ -100,7 +100,7 @@ At Solserva Greentech Pvt. Ltd., he oversees structural integrity, mounting hard
     name: "Kiritkumar Dineshbhai Savaliya",
     designation: "Managing Director | Solserva Greentech Pvt. Ltd.",
     qualifications: "Chartered Accountant (CA) | Finance & Strategic Advisor | 16+ Years Experience",
-    image: "assets/images/Kirit Savaliya.svg",
+    image: "assets/images/Kirit Savaliya.webp",
     overview: `A qualified Chartered Accountant with over 16 years of extensive experience in corporate finance, financial management, taxation, corporate governance, and strategic business advisory.
 
 As Managing Director at Solserva Greentech Pvt. Ltd., he brings strong financial expertise, commercial insight, and strategic leadership to the company's renewable energy business operations. His professional approach focuses on financial discipline, operational efficiency, risk management, and sustainable business growth.`,
@@ -121,7 +121,7 @@ As Managing Director at Solserva Greentech Pvt. Ltd., he brings strong financial
     name: "Adv. Hiteshbhai Devrajbhai Maniya",
     designation: "Managing Director | Solserva Greentech Pvt. Ltd.",
     qualifications: "Advocate | Legal & Corporate Advisor | 18+ Years Experience",
-    image: "assets/images/Hitesh Maniya.svg",
+    image: "assets/images/Hitesh Maniya.webp",
     overview: `An experienced Advocate with over 18 years of professional experience in the legal and statutory sector, bringing extensive knowledge of corporate legal advisory, regulatory compliance, legal documentation, contractual matters, and commercial business laws.
 
 As Managing Director at Solserva Greentech Pvt. Ltd., he anchors regulatory compliance, DISCOM sanctions, contractual safeguards, corporate governance, and ethical corporate integrity for clean energy developments.`,
@@ -142,7 +142,7 @@ As Managing Director at Solserva Greentech Pvt. Ltd., he anchors regulatory comp
     name: "Yogesh Vallabhbhai Chovatiya",
     designation: "Director & Operations Head | Solserva Greentech Pvt. Ltd.",
     qualifications: "Engineering & Industrial Management Professional | 14+ Years Experience",
-    image: "assets/images/Yogesh Chovatiya.svg",
+    image: "assets/images/Yogesh Chovatiya.webp",
     overview: `An experienced engineering and industrial operations professional with over 14 years of hands-on expertise in quality management, production planning, supply-chain stores, and industrial fire safety systems.
 
 He oversees Solserva Greentech's operational discipline, vendor inventory quality checks, on-site workforce safety protocols, and execution timeliness.`,
@@ -161,7 +161,7 @@ He oversees Solserva Greentech's operational discipline, vendor inventory qualit
     name: "Sureshbhai Kachhadiya",
     designation: "Technical Head | Solserva Greentech Pvt. Ltd.",
     qualifications: "Electronics and Communication Engineer | 18 Years Vodafone Idea Experience | Solar IoT Specialist",
-    image: "assets/images/Sureshbhai Kachhadiya.svg",
+    image: "assets/images/Sureshbhai Kachhadiya.webp",
     overview: `With an academic background in Electronics and Communication Engineering and 18 years of high-level professional experience at Vodafone Idea Ltd., Sureshbhai Kachhadiya brings an unparalleled foundation in telecommunications infrastructure, hardware/software fault diagnosis, IoT data pipelines, and remote connectivity.
 
 His mission is to pioneer intelligent IoT and telemetry for the solar industry, enabling EPC contractors, manufacturers, and plant owners to have real-time visibility and predictive fault diagnostics.`,
@@ -181,7 +181,7 @@ His mission is to pioneer intelligent IoT and telemetry for the solar industry, 
     name: "Hardik Ratibhai Radadiya",
     designation: "Electrical Head | Solserva Greentech Pvt. Ltd.",
     qualifications: "Electrical Engineer | 16+ Years Experience",
-    image: "assets/images/Hardik Radadiya.svg",
+    image: "assets/images/Hardik Radadiya.webp",
     overview: `Hardik Ratibhai Radadiya serves as the Electrical Head at Solserva Greentech Pvt. Ltd., bringing 16 years of deep electrical engineering expertise to the forefront of solar data intelligence. Instead of physical installations, Hardik Ratibhai Radadiya directs the technical architecture behind the company's advanced data monitoring, performance analytics, and predictive maintenance services, ensuring solar assets worldwide operate at peak efficiency.
 
 Graduating as an Electrical Engineer in 2010, Hardik Ratibhai Radadiya spent the foundational years of his career mastering electrical power systems. As the renewable sector evolved, he recognized that the future of solar efficiency lay in data. Over the past 16 years, Hardik Ratibhai Radadiya transitioned his core electrical knowledge into the digital space, becoming an expert in solar asset performance management and data-driven optimization.`,

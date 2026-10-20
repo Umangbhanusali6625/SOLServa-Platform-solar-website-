@@ -167,7 +167,7 @@ function initInstantPageTransitions() {
     if ('caches' in window) {
       fetch(url, { priority: 'low' }).then((res) => {
         if (res.ok) {
-          caches.open('solserva-pwa-v6').then((cache) => cache.put(url, res));
+          caches.open('solserva-pwa-v7').then((cache) => cache.put(url, res));
         }
       }).catch(() => {});
     }

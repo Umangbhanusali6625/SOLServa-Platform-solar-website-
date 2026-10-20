@@ -3,7 +3,7 @@
  * Version: 3.1.0 (High Performance Edition)
  */
 
-const CACHE_NAME = 'solserva-pwa-v6';
+const CACHE_NAME = 'solserva-pwa-v7';
 
 const STATIC_ASSETS = [
   './',
@@ -23,7 +23,8 @@ const STATIC_ASSETS = [
   './assets/js/main.js',
   './assets/images/favicon-64.png',
   './assets/images/icon-192.png',
-  './assets/images/SOLSERVA Green Energy Emblem.svg'
+  './assets/images/SOLSERVA Green Energy Emblem.svg',
+  './assets/images/hero-solar.webp'
 ];
 
 // 1. Install Event - Cache Core Shell
