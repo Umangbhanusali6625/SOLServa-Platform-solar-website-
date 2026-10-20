@@ -5,6 +5,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Actively remove any stale/cached owner portal elements
+  const staleTrigger = document.getElementById('ownerPortalFloatingTrigger');
+  if (staleTrigger) staleTrigger.remove();
+  const staleModal = document.getElementById('ownerLeadsModal');
+  if (staleModal) staleModal.remove();
+
   if (typeof initNavbar === 'function') initNavbar();
   if (typeof initScrollEffects === 'function') initScrollEffects();
   if (typeof initModalBackdrops === 'function') initModalBackdrops();
@@ -20,11 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initCookieBanner();
 });
 
-// 1. PWA Service Worker Registration
+// 1. PWA Service Worker Registration with Immediate Update Check
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js')
       .then(reg => {
+        // Automatically check for worker updates on every page view
+        reg.update();
         console.log('[SOLServa PWA] Service Worker active with scope:', reg.scope);
       })
       .catch(err => {

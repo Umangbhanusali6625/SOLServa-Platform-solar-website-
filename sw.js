@@ -1,9 +1,9 @@
 /**
  * SOLSERVA GREENTECH - Progressive Web App (PWA) Service Worker
- * Version: 2.0.0
+ * Version: 3.0.0
  */
 
-const CACHE_NAME = 'solserva-pwa-v2';
+const CACHE_NAME = 'solserva-pwa-v3';
 
 const STATIC_ASSETS = [
   './',
@@ -50,6 +50,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
+            console.log('[PWA ServiceWorker] Purging outdated cache:', cache);
             return caches.delete(cache);
           }
         })
@@ -58,14 +59,16 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// 3. Fetch Event - Network First with Cache Fallback for Pages, Cache First for Static Assets
+// 3. Fetch Event
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   
   // Skip non-GET requests
   if (request.method !== 'GET') return;
 
-  // Handle HTML navigation (Network first, fallback to cached index)
+  const url = new URL(request.url);
+
+  // 3.1 Handle HTML navigation (Network first, fallback to cache)
   if (request.mode === 'navigate') {
     event.respondWith(
       fetch(request)
@@ -83,7 +86,25 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Handle Static Assets (Stale-While-Revalidate)
+  // 3.2 Handle JavaScript & CSS Code Assets (Network-First)
+  // Guarantees all users immediately receive new updates/bug-fixes without requiring manual hard-refresh
+  const isCodeAsset = url.pathname.endsWith('.js') || url.pathname.endsWith('.css') || url.search.includes('v=');
+  if (isCodeAsset) {
+    event.respondWith(
+      fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(request))
+    );
+    return;
+  }
+
+  // 3.3 Handle Static Media & Images (Stale-While-Revalidate)
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       const fetchPromise = fetch(request).then((networkResponse) => {
