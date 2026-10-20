@@ -170,21 +170,21 @@ function initCalculator() {
 function switchLoggerDevice(type, btnElement) {
   const devices = {
     usb: {
-      img: 'assets/images/Stick Logger with USB Connector.png',
+      img: 'assets/images/Stick Logger with USB Connector.svg',
       alt: 'SOLServa Stick Logger with USB Connector',
       caption: 'SOLServa USB Stick Logger',
       subcaption: 'Direct Inverter USB Port Telemetry • 4G LTE / WiFi Dual Band',
       badge: 'USB 2.0 Inverter Port'
     },
     rs485: {
-      img: 'assets/images/SOLSERVA GreenTech Stick Logger.png',
+      img: 'assets/images/SOLSERVA GreenTech Stick Logger.svg',
       alt: 'SOLSERVA GreenTech Stick Logger RS-485 Modbus',
       caption: 'SOLServa RS-485 Modbus Logger',
       subcaption: 'Industrial Multi-Drop Serial Gateway • Inverters & Energy Meters',
       badge: 'RS485 / DB9 Serial'
     },
     junction: {
-      img: 'assets/images/Solserva Stick Logger Junction Box.png',
+      img: 'assets/images/Solserva Stick Logger Junction Box.svg',
       alt: 'Solserva Stick Logger Junction Box Outdoor Field Setup',
       caption: 'Field Junction Box Deployment',
       subcaption: 'Heavy-Duty IP65 Weatherproof Enclosure • Rooftop & Ground Plants',
