@@ -1339,3 +1339,432 @@
   padding-bottom: 18px;
 }
 
+/* ===================================================================
+   PRODUCT CATALOGUE & TECHNICAL SPECIFICATION MANUAL SHOWCASE
+   =================================================================== */
+.catalogue-showcase-section {
+  padding: 95px 0;
+  background: linear-gradient(135deg, #032b21 0%, #064e3b 50%, #042f2e 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.catalogue-showcase-section::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.catalogue-showcase-section::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.catalogue-banner-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.catalogue-badge-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.catalogue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-background-clip: border-box !important;
+}
+
+.catalogue-badge.catalogue-badge-edition,
+.catalogue-badge.highlight {
+  background: rgba(245, 158, 11, 0.22) !important;
+  border: 1.5px solid rgba(245, 158, 11, 0.75) !important;
+  color: #fbbf24 !important;
+  -webkit-text-fill-color: #fbbf24 !important;
+  -webkit-background-clip: border-box !important;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.catalogue-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.catalogue-title .highlight {
+  color: #34d399;
+}
+
+.catalogue-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+  margin-bottom: 28px;
+}
+
+.catalogue-modules-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.cat-module-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.cat-module-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(52, 211, 153, 0.4);
+  transform: translateX(4px);
+}
+
+.cat-mod-num {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #34d399;
+  font-family: monospace;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 4px 8px;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.cat-mod-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.cat-mod-text span {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  display: block;
+}
+
+.catalogue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.catalogue-actions .btn {
+  padding: 14px 28px;
+  font-size: 0.98rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Document Mockup Visual */
+.doc-preview-card {
+  position: relative;
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-top: 6px solid #10b981;
+  transition: all 0.4s ease;
+}
+
+.doc-preview-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.55), 0 0 30px rgba(16, 185, 129, 0.3);
+}
+
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.doc-header-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.doc-header-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.doc-header-dots span:nth-child(1) { background: #ef4444; }
+.doc-header-dots span:nth-child(2) { background: #f59e0b; }
+.doc-header-dots span:nth-child(3) { background: #10b981; }
+
+.doc-file-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.doc-emblem {
+  margin-bottom: 16px;
+}
+
+.doc-meta-top {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #059669;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.doc-cover-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.doc-cover-sub {
+  font-size: 0.92rem;
+  color: #475569;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.doc-cover-rule {
+  width: 50px;
+  height: 3px;
+  background: #10b981;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.doc-cover-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.doc-feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.doc-feature-pills span {
+  font-size: 0.75rem;
+  background: #f1f5f9;
+  color: #334155;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+.doc-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #059669;
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN FOR PRODUCT CATALOGUE SHOWCASE SECTION
+   =================================================================== */
+
+/* Tablet & Smaller Laptops (<= 991px) */
+@media (max-width: 991px) {
+  .catalogue-showcase-section {
+    padding: 70px 0;
+  }
+  .catalogue-banner-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .catalogue-title {
+    font-size: 2.05rem;
+  }
+  .catalogue-subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+  }
+  .doc-preview-card {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile Devices & Phablets (<= 768px) */
+@media (max-width: 768px) {
+  .catalogue-showcase-section {
+    padding: 55px 0;
+  }
+  .catalogue-badge-wrap {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .catalogue-badge {
+    font-size: 0.76rem;
+    padding: 5px 12px;
+  }
+  .catalogue-title {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .catalogue-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .catalogue-modules-grid {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .cat-module-item {
+    padding: 10px 12px;
+    gap: 12px;
+  }
+  .cat-mod-num {
+    font-size: 0.95rem;
+    padding: 3px 6px;
+  }
+  .cat-mod-text strong {
+    font-size: 0.88rem;
+  }
+  .cat-mod-text span {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+  .doc-preview-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+  .doc-cover-title {
+    font-size: 1.4rem;
+  }
+  .doc-cover-desc {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+}
+
+/* Small Mobile Screens (<= 576px) */
+@media (max-width: 576px) {
+  .catalogue-showcase-section {
+    padding: 45px 0;
+  }
+  .catalogue-badge-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .catalogue-badge {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    white-space: normal;
+    text-align: left;
+  }
+  .catalogue-title {
+    font-size: 1.52rem;
+    letter-spacing: -0.2px;
+  }
+  .catalogue-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .catalogue-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px;
+    font-size: 0.92rem;
+  }
+  .doc-preview-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+  .doc-header {
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  .doc-cover-title {
+    font-size: 1.25rem;
+  }
+  .doc-cover-sub {
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+  }
+  .doc-feature-pills {
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .doc-feature-pills span {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+  .doc-footer-bar {
+    font-size: 0.72rem;
+    padding-top: 10px;
+  }
+}
+
+

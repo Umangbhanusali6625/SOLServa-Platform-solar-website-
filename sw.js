@@ -3,7 +3,7 @@
  * Version: 3.1.0 (High Performance Edition)
  */
 
-const CACHE_NAME = 'solserva-pwa-v7';
+const CACHE_NAME = 'solserva-pwa-v12';
 
 const STATIC_ASSETS = [
   './',
