@@ -1329,5 +1329,192 @@ body.nav-open {
   }
 }
 
+/* ===================================================================
+   BRANDED PRELOADER & LOADING SCREEN
+   "Center logo with rotating circular orbit animation"
+   =================================================================== */
+.site-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0d2235 0%, #09131f 70%, #04090e 100%);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.55s ease;
+  pointer-events: all;
+}
+
+.site-preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  max-width: 440px;
+}
+
+/* Orbit container */
+.preloader-orbit-wrapper {
+  position: relative;
+  width: 164px;
+  height: 164px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+/* Outer Gradient Rotating Ring (Smooth Circle Rotating Round Logo) */
+.orbit-ring-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3.5px solid transparent;
+  border-top-color: #10b981;
+  border-right-color: #f59e0b;
+  border-bottom-color: #059669;
+  animation: preloaderSpin 1.6s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.55));
+}
+
+/* Middle Dashed Orbit Ring */
+.orbit-ring-middle {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.22);
+  animation: preloaderCounterSpin 4s linear infinite;
+}
+
+/* Inner Glowing Pulse Ring */
+.orbit-ring-glow {
+  position: absolute;
+  inset: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, transparent 75%);
+  animation: preloaderPulse 2.2s ease-in-out infinite;
+}
+
+/* Center Logo Pod */
+.preloader-logo-pod {
+  position: relative;
+  z-index: 5;
+  width: 96px;
+  height: 96px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(16, 185, 129, 0.4);
+  animation: preloaderEmblemFloat 2.4s ease-in-out infinite alternate;
+}
+
+.preloader-logo-img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Typography & Tagline */
+.preloader-brand-title {
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 1.85rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: #ffffff;
+  margin-bottom: 4px;
+  background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.preloader-tagline {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+/* Progress Track */
+.preloader-bar-wrap {
+  width: 190px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.preloader-bar-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #f59e0b 50%, #10b981 100%);
+  background-size: 200% 100%;
+  border-radius: 9999px;
+  animation: preloaderProgress 1.4s ease-in-out infinite;
+}
+
+.preloader-status-text {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: #34d399;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Keyframes */
+@keyframes preloaderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes preloaderCounterSpin {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.45; }
+  50% { transform: scale(1.12); opacity: 0.9; }
+}
+
+@keyframes preloaderEmblemFloat {
+  0% { transform: scale(0.96); }
+  100% { transform: scale(1.02); }
+}
+
+@keyframes preloaderProgress {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring-outer,
+  .orbit-ring-middle,
+  .preloader-bar-fill,
+  .preloader-logo-pod {
+    animation: none;
+  }
+}
+
+
 
 

@@ -25,7 +25,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize DPDP & Cookie Compliance Banner
   initCookieBanner();
+
+  // Enforce company WhatsApp number across all links & dynamic popups
+  function enforceWhatsAppNumber() {
+    const waLinks = document.querySelectorAll('a[href*="wa.me"]');
+    waLinks.forEach(link => {
+      if (link.href && !link.href.includes('917574946000')) {
+        link.href = link.href.replace(/wa\.me\/(?:\+?91)?[0-9]+/g, 'wa.me/917574946000');
+      }
+    });
+  }
+  enforceWhatsAppNumber();
+
+  // Intercept any clicks on WhatsApp buttons/links to guarantee new number
+  document.addEventListener('click', (e) => {
+    const waLink = e.target.closest('a[href*="wa.me"]');
+    if (waLink && !waLink.href.includes('917574946000')) {
+      waLink.href = waLink.href.replace(/wa\.me\/(?:\+?91)?[0-9]+/g, 'wa.me/917574946000');
+    }
+  }, true);
 });
+
+// Preloader Dismissal Handler (Smooth fade-out + safety fallback)
+function dismissPreloader() {
+  const preloader = document.getElementById('sitePreloader');
+  if (preloader && !preloader.classList.contains('fade-out')) {
+    preloader.classList.add('fade-out');
+    setTimeout(() => {
+      if (preloader && preloader.parentNode) {
+        preloader.remove();
+      }
+    }, 600);
+  }
+}
+
+// Window load listener (gives smooth 350ms viewing of the rotating logo animation)
+window.addEventListener('load', () => {
+  setTimeout(dismissPreloader, 350);
+});
+
+// Fallback safety timeout: guarantees preloader dismisses within 1.5s even on slow connections
+setTimeout(dismissPreloader, 1500);
 
 // 1. PWA Service Worker Registration with Background Update Check
 if ('serviceWorker' in navigator) {

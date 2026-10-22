@@ -1,9 +1,9 @@
 /**
  * SOLSERVA GREENTECH - Progressive Web App (PWA) Service Worker
- * Version: 3.1.0 (High Performance Edition)
+ * Version: 3.2.0 (High Performance Preloader Edition)
  */
 
-const CACHE_NAME = 'solserva-pwa-v12';
+const CACHE_NAME = 'solserva-pwa-v15';
 
 const STATIC_ASSETS = [
   './',
@@ -63,31 +63,20 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // 3.1 Handle HTML navigation (Instant 0ms Page Switch with Background Revalidation)
+  // 3.1 Handle HTML navigation (Network-First to always serve latest code, cache fallback if offline)
   if (request.mode === 'navigate') {
     event.respondWith(
-      caches.match(request).then((cachedResponse) => {
-        // Background cache revalidation promise registered with event.waitUntil
-        const refreshPromise = fetch(request)
-          .then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              const clone = networkResponse.clone();
-              return caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-            }
-          })
-          .catch((err) => {
-            console.warn('[PWA ServiceWorker] Navigation background refresh:', err);
-          });
-
-        // Keep the Service Worker process alive until the cache update completes
-        event.waitUntil(refreshPromise);
-
-        // Serve cached page immediately if available (0ms instant switch), else wait for network
-        return (
-          cachedResponse ||
-          fetch(request).catch(() => caches.match('./index.html'))
-        );
-      })
+      fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          return caches.match(request).then((cached) => cached || caches.match('./index.html'));
+        })
     );
     return;
   }

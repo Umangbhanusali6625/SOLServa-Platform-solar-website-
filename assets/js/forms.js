@@ -1,7 +1,7 @@
 /* ===================================================================
    AUTOMATED FORM DATA ENGINE & OWNER INBOX DISPATCH
    Official Recipient: solservagreentechpvtltd@gmail.com
-   Support & WhatsApp Desk: +91 90339 83133
+   Support & WhatsApp Desk: +91 75749 46000
    =================================================================== */
 const OWNER_EMAIL = 'solservagreentechpvtltd@gmail.com';
 
@@ -69,7 +69,7 @@ async function dispatchLeadToOwner(payload) {
 
 // 3. Direct WhatsApp Dispatch Utility (Opens WhatsApp directly with pre-filled message)
 function openDirectWhatsApp(waText) {
-  const cleanPhone = '919033983133';
+  const cleanPhone = '917574946000';
   const encoded = encodeURIComponent(waText);
   const waUrl = `https://wa.me/${cleanPhone}?text=${encoded}`;
 
