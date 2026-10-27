@@ -55,17 +55,21 @@ function dismissPreloader() {
       if (preloader && preloader.parentNode) {
         preloader.remove();
       }
-    }, 600);
+    }, 450);
   }
 }
 
-// Window load listener (gives smooth 350ms viewing of the rotating logo animation)
-window.addEventListener('load', () => {
-  setTimeout(dismissPreloader, 350);
-});
+// Fast DOM-ready listener (dismisses quickly without waiting for every single remote image)
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  setTimeout(dismissPreloader, 150);
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(dismissPreloader, 250);
+  });
+}
 
-// Fallback safety timeout: guarantees preloader dismisses within 1.5s even on slow connections
-setTimeout(dismissPreloader, 1500);
+// Hard safety timeout: guarantees preloader dismisses within 500ms under all network conditions
+setTimeout(dismissPreloader, 500);
 
 // 1. PWA Service Worker Registration with Background Update Check
 if ('serviceWorker' in navigator) {

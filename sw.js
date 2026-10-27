@@ -3,7 +3,7 @@
  * Version: 3.2.0 (High Performance Preloader Edition)
  */
 
-const CACHE_NAME = 'solserva-pwa-v15';
+const CACHE_NAME = 'solserva-pwa-v16';
 
 const STATIC_ASSETS = [
   './',
@@ -23,7 +23,6 @@ const STATIC_ASSETS = [
   './assets/js/main.js',
   './assets/images/favicon-64.png',
   './assets/images/icon-192.png',
-  './assets/images/SOLSERVA Green Energy Emblem.svg',
   './assets/images/hero-solar.webp'
 ];
 
@@ -75,14 +74,13 @@ self.addEventListener('fetch', (event) => {
           return networkResponse;
         })
         .catch(() => {
-          return caches.match(request).then((cached) => cached || caches.match('./index.html'));
+          return caches.match(request, { ignoreSearch: true }).then((cached) => cached || caches.match('./index.html'));
         })
     );
     return;
   }
 
-  // 3.2 Handle JavaScript & CSS Code Assets (Network-First)
-  // Guarantees all users immediately receive new updates/bug-fixes without requiring manual hard-refresh
+  // 3.2 Handle JavaScript & CSS Code Assets (Network-First with Cache Fallback)
   const isCodeAsset = url.pathname.endsWith('.js') || url.pathname.endsWith('.css') || url.search.includes('v=');
   if (isCodeAsset) {
     event.respondWith(
@@ -94,7 +92,7 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(() => caches.match(request))
+        .catch(() => caches.match(request, { ignoreSearch: true }))
     );
     return;
   }

@@ -178,7 +178,7 @@
           <!-- Center Brand Emblem -->
           <div class="preloader-logo-pod">
             <img
-              src="assets/images/SOLSERVA Green Energy Emblem.svg"
+              src="assets/images/favicon-64.png"
               alt="SOLServa Emblem"
               class="preloader-logo-img"
               width="68"
@@ -198,6 +198,31 @@
         <div class="preloader-status-text">INITIALIZING SMART SOLAR TELEMETRY...</div>
       </div>
     </div>
+
+    <!-- Inline Fast Preloader Dismissal Engine -->
+    <script>
+      (function() {
+        var preloader = document.getElementById('sitePreloader');
+        if (!preloader) return;
+        if (sessionStorage.getItem('solserva_preloader_seen')) {
+          preloader.style.display = 'none';
+          return;
+        }
+        sessionStorage.setItem('solserva_preloader_seen', '1');
+        function closeLoader() {
+          if (preloader && !preloader.classList.contains('fade-out')) {
+            preloader.classList.add('fade-out');
+            setTimeout(function() { if (preloader && preloader.parentNode) preloader.remove(); }, 400);
+          }
+        }
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+          setTimeout(closeLoader, 300);
+        } else {
+          document.addEventListener('DOMContentLoaded', function() { setTimeout(closeLoader, 300); });
+          setTimeout(closeLoader, 700);
+        }
+      })();
+    </script>
 
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="top-bar">
@@ -1244,10 +1269,10 @@
       &#8593;
     </button>
 
-    <script src="assets/js/nav.js"></script>
-    <script src="assets/js/modals.js"></script>
-    <script src="assets/js/calculator.js"></script>
-    <script src="assets/js/forms.js?v=3.5"></script>
-    <script src="assets/js/main.js?v=3.5"></script>
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/modals.js" defer></script>
+    <script src="assets/js/calculator.js" defer></script>
+    <script src="assets/js/forms.js?v=3.6" defer></script>
+    <script src="assets/js/main.js?v=3.6" defer></script>
   </body>
 </html>
