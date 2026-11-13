@@ -43,7 +43,6 @@ function initServiceTabs() {
 }
 
 /* ===================================================================
-
    4. DASHBOARD PREVIEW TOGGLES (Section 4.1 & Section 7)
    =================================================================== */
 function switchDashView(view, btnElement) {
@@ -83,7 +82,6 @@ function switchDashView(view, btnElement) {
 }
 window.switchDashView = switchDashView;
 
-
 /* ===================================================================
    5. SOLAR ESTIMATOR CALCULATOR
    =================================================================== */
@@ -94,6 +92,7 @@ function initCalculator() {
 
   const resSystemSize = document.getElementById('resSystemSize');
   const resSubsidy = document.getElementById('resSubsidy');
+  const subsidyCard = document.querySelector('.result-metric-card.subsidy-card');
   const resAnnualSavings = document.getElementById('resAnnualSavings');
   const resRoofArea = document.getElementById('resRoofArea');
   const resPayback = document.getElementById('resPayback');
@@ -133,10 +132,22 @@ function initCalculator() {
     const roofArea = Math.round(systemKw * 100);
 
     let subsidy = 0;
+    // PM Surya Ghar subsidy applies strictly to Residential installations
     if (currentPropertyType === 'residential') {
       if (systemKw >= 3) subsidy = 78000;
       else if (systemKw >= 2) subsidy = 60000;
       else if (systemKw >= 1) subsidy = 30000;
+      if (subsidyCard) {
+        subsidyCard.style.display = 'flex';
+      }
+      if (resSubsidy) {
+        resSubsidy.textContent = `₹${subsidy.toLocaleString('en-IN')}`;
+      }
+    } else {
+      // Non-residential projects: hide PM Surya Ghar subsidy card
+      if (subsidyCard) {
+        subsidyCard.style.display = 'none';
+      }
     }
 
     const grossCost = Math.round(systemKw * 58000);
@@ -147,17 +158,16 @@ function initCalculator() {
     const paybackYears = (netCost / (annualSavings || 1)).toFixed(1);
     const lifetimeSavings = Math.round((annualSavings * 25) - netCost);
 
-    resSystemSize.textContent = `${systemKw} kW`;
-    resSubsidy.textContent = subsidy > 0 ? `₹${subsidy.toLocaleString('en-IN')}` : `Depreciation / GST Benefit`;
-    resAnnualSavings.textContent = `₹${annualSavings.toLocaleString('en-IN')}`;
-    resRoofArea.textContent = `${roofArea.toLocaleString('en-IN')} sq.ft`;
-    resPayback.textContent = `${paybackYears} Years`;
-    resLifetimeSavings.textContent = `₹${(lifetimeSavings / 100000).toFixed(2)} Lakhs`;
+    if (resSystemSize) resSystemSize.textContent = `${systemKw} kW`;
+    if (resAnnualSavings) resAnnualSavings.textContent = `₹${annualSavings.toLocaleString('en-IN')}`;
+    if (resRoofArea) resRoofArea.textContent = `${roofArea.toLocaleString('en-IN')} sq.ft`;
+    if (resPayback) resPayback.textContent = `${paybackYears} Years`;
+    if (resLifetimeSavings) resLifetimeSavings.textContent = `₹${(lifetimeSavings / 100000).toFixed(2)} Lakhs`;
   }
 
   if (applyCalcBtn) {
     applyCalcBtn.addEventListener('click', () => {
-      window.location.href = 'contact.html';
+      window.location.href = '/contact/';
     });
   }
 
@@ -170,22 +180,29 @@ function initCalculator() {
 function switchLoggerDevice(type, btnElement) {
   const devices = {
     usb: {
-      img: 'assets/images/Stick Logger with USB Connector.webp',
-      alt: 'SOLServa Stick Logger with USB Connector',
+      img: '/assets/images/stick-logger-with-usb-connector.webp',
+      alt: 'SOLServa USB Stick Logger for plug-and-play inverter monitoring',
       caption: 'SOLServa USB Stick Logger',
       subcaption: 'Direct Inverter USB Port Telemetry • 4G LTE / WiFi Dual Band',
       badge: 'USB 2.0 Inverter Port'
     },
     rs485: {
-      img: 'assets/images/SOLSERVA GreenTech Stick Logger.webp',
-      alt: 'SOLSERVA GreenTech Stick Logger RS-485 Modbus',
+      img: '/assets/images/solserva-greentech-stick-logger.webp',
+      alt: 'SOLServa RS-485 Modbus serial data logger for industrial inverters',
       caption: 'SOLServa RS-485 Modbus Logger',
       subcaption: 'Industrial Multi-Drop Serial Gateway • Inverters & Energy Meters',
       badge: 'RS485 / DB9 Serial'
     },
+    aviation: {
+      img: '/assets/images/stick-logger-with-green-connector.png',
+      alt: 'SOLServa circular aviation port stick logger with green twist-lock connector',
+      caption: 'SOLServa Circular Port Stick Logger',
+      subcaption: 'Vibration-Proof 4-Pin Twist-Lock Telemetry • 4G LTE / WiFi • Make in India',
+      badge: '4-Pin Aviation Port'
+    },
     junction: {
-      img: 'assets/images/Solserva Stick Logger Junction Box.webp',
-      alt: 'Solserva Stick Logger Junction Box Outdoor Field Setup',
+      img: '/assets/images/solserva-stick-logger-junction-box.webp',
+      alt: 'SOLServa weatherproof IP65 outdoor junction box logger deployment',
       caption: 'Field Junction Box Deployment',
       subcaption: 'Heavy-Duty IP65 Weatherproof Enclosure • Rooftop & Ground Plants',
       badge: 'IP65 Weatherproof Field Unit'
@@ -219,5 +236,3 @@ function switchLoggerDevice(type, btnElement) {
   });
 }
 window.switchLoggerDevice = switchLoggerDevice;
-
-

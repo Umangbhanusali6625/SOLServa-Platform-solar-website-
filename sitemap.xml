@@ -7,73 +7,97 @@
   <!-- Homepage -->
   <url>
     <loc>https://solserva.in/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Specialized Solar Services -->
   <url>
-    <loc>https://solserva.in/services.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/services/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Tailored Solutions (EPCs, C&I, Residential, O&M) -->
   <url>
-    <loc>https://solserva.in/solutions.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/solutions/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- EPC Partner Program -->
   <url>
-    <loc>https://solserva.in/epc-partners.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/epc-partners/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- How It Works (6-Step Lifecycle) -->
   <url>
-    <loc>https://solserva.in/how-it-works.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/how-it-works/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Solar ROI & PM Surya Ghar Calculator -->
   <url>
-    <loc>https://solserva.in/calculator.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/calculator/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- About Us & Executive Team -->
   <url>
-    <loc>https://solserva.in/about.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/about/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Knowledge Base & Technical FAQs -->
   <url>
-    <loc>https://solserva.in/resources.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/resources/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact & Service Enquiry -->
+  <!-- Contact & Service Enquiry Desk -->
   <url>
-    <loc>https://solserva.in/contact.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://solserva.in/contact/</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Legal: Privacy Policy -->
+  <url>
+    <loc>https://solserva.in/privacy-policy/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Legal: Terms of Use -->
+  <url>
+    <loc>https://solserva.in/terms/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Legal: Service Scope & Limitations -->
+  <url>
+    <loc>https://solserva.in/service-scope/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>

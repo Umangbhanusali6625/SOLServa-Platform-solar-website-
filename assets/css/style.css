@@ -20,6 +20,10 @@ body.nav-open {
   box-sizing: border-box;
 }
 
+.legal-article-card {
+  padding: 45px;
+}
+
 /* ===================================================================
    1. TABLET & COMPACT DESKTOP (<= 1140px)
    =================================================================== */
@@ -305,10 +309,12 @@ body.nav-open {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
 
-  .hero-stat-item h4 {
-    font-size: 1.45rem !important;
+  .hero-stat-item h4,
+  .hero-stat-item .hero-stat-val {
+    font-size: 1.15rem !important;
+    line-height: 1.25 !important;
     margin-bottom: 0 !important;
-    min-width: 95px !important;
+    min-width: auto !important;
     flex-shrink: 0 !important;
   }
 
@@ -323,6 +329,81 @@ body.nav-open {
 
   .hero-img {
     height: 280px !important;
+  }
+
+  /* Services Tabs Horizontal App-Style Scroll on Tablets & Mobile */
+  .services-tabs-nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding: 6px 4px 14px !important;
+    gap: 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  .services-tabs-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .srv-nav-btn {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    padding: 9px 15px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* Logger Showcase & Fleet Grid Mobile */
+  .logger-device-showcase-box {
+    padding: 18px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .logger-device-img-display {
+    height: 240px !important;
+  }
+
+  .logger-device-thumbs-nav {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .logger-thumb-btn {
+    padding: 6px 4px !important;
+  }
+
+  .logger-thumb-btn img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .logger-thumb-btn span {
+    font-size: 0.68rem !important;
+  }
+
+  .logger-fleet-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .logger-fleet-card {
+    padding: 18px 14px !important;
+  }
+
+  .logger-fleet-card-img-wrap {
+    height: 190px !important;
+  }
+
+  /* Legal Standalone Pages (Privacy, Terms, Service Scope) */
+  .legal-page-main {
+    padding: 30px 0 60px !important;
+  }
+
+  .legal-page-main article,
+  .legal-article-card {
+    padding: 24px 18px !important;
+    border-radius: 14px !important;
   }
 
   /* Grids to single column */
@@ -538,6 +619,24 @@ body.nav-open {
 
   .floating-pill-card {
     display: none !important;
+  }
+
+  .logger-device-img-display {
+    height: 200px !important;
+  }
+
+  .logger-fleet-card-img-wrap {
+    height: 170px !important;
+  }
+
+  .logger-device-thumbs-nav {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .legal-page-main article,
+  .legal-article-card {
+    padding: 18px 14px !important;
   }
 
   /* Calculator Mobile */

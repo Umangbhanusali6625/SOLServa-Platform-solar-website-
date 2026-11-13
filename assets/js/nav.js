@@ -71,13 +71,25 @@ function initNavbar() {
   // Close mobile nav when clicking normal nav links or dropdown links
   navMenu?.querySelectorAll('a').forEach(anchor => {
     anchor.addEventListener('click', () => {
-      // Don't close if it's the parent link opening the mobile dropdown
       if (window.innerWidth <= 1024 && anchor.classList.contains('nav-link') && anchor.parentElement?.querySelector('.dropdown-menu')) {
         return;
       }
       closeMobileNav();
     });
   });
+
+  // Offline file:// protocol fallback
+  if (window.location.protocol === 'file:') {
+    document.querySelectorAll('a[href^="/"]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href && !href.startsWith('//')) {
+        const [cleanPath, h] = href.split('#');
+        const stripped = cleanPath.replace(/^\//, '').replace(/\/$/, '');
+        const target = stripped === '' ? './index.html' : `./${stripped}/index.html`;
+        a.setAttribute('href', h ? `${target}#${h}` : target);
+      }
+    });
+  }
 
   // Smooth scroll & same-page hash click handling
   document.querySelectorAll('a[href*="#"]').forEach(anchor => {
@@ -88,8 +100,9 @@ function initNavbar() {
       const [linkPath, hash] = rawHref.split('#');
       if (!hash) return;
 
-      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-      const isSamePage = !linkPath || linkPath === currentPath || (linkPath === 'index.html' && (currentPath === '' || currentPath === 'index.html'));
+      const currentPath = window.location.pathname.replace(/^\/|\/index\.html$|\.html$|\/$/g, '') || '';
+      const targetCleanPath = (linkPath || '').replace(/^\/|\/index\.html$|\.html$|\/$/g, '') || '';
+      const isSamePage = !linkPath || targetCleanPath === currentPath || ((targetCleanPath === '' || targetCleanPath === 'index') && (currentPath === '' || currentPath === 'index'));
 
       if (isSamePage) {
         let targetEl = null;
@@ -116,7 +129,6 @@ function initNavbar() {
   });
 }
 
-
 /* ===================================================================
    9. SCROLL EFFECTS & BACK TO TOP
    =================================================================== */
@@ -142,7 +154,6 @@ function initScrollEffects() {
    10. INSTANT PAGE TRANSITIONS & INTERACTION PREFETCH ENGINE
    =================================================================== */
 function initInstantPageTransitions() {
-  // If the browser natively supports Speculation Rules, it handles hover prefetching natively
   const hasNativeSpeculation =
     typeof HTMLScriptElement !== 'undefined' &&
     HTMLScriptElement.supports &&
@@ -155,32 +166,27 @@ function initInstantPageTransitions() {
     if (url.startsWith('#') || url.startsWith('javascript:') || url.startsWith('tel:') || url.startsWith('mailto:')) return;
     if (url.startsWith('http') && !url.includes(window.location.hostname)) return;
 
-    // Speculation Rules with moderate eagerness handles pointer hover/touch, but not keyboard focus.
-    // If native Speculation Rules is active on hover/touch, let the browser handle it.
     if (hasNativeSpeculation && !isKeyboard) return;
 
     if (prefetched.has(url)) return;
     prefetched.add(url);
 
-    // Fallback for keyboard focus and browsers without Speculation Rules (e.g. Safari / Firefox):
-    // Single low-priority fetch into the Cache API
     if ('caches' in window) {
       fetch(url, { priority: 'low' }).then((res) => {
         if (res.ok) {
-          caches.open('solserva-pwa-v7').then((cache) => cache.put(url, res));
+          caches.open('solserva-pwa-v18').then((cache) => cache.put(url, res));
         }
       }).catch(() => {});
     }
   }
 
-  // Prefetch strictly upon navigation signals (hover, touchstart, or focus)
   const handleNavigationSignal = (e) => {
     const anchor = e.target.closest('a[href]');
     if (!anchor) return;
     const href = anchor.getAttribute('href');
     if (!href) return;
     const cleanUrl = href.split('#')[0];
-    if (cleanUrl && cleanUrl.endsWith('.html')) {
+    if (cleanUrl && !cleanUrl.startsWith('http') && !cleanUrl.startsWith('mailto:') && !cleanUrl.startsWith('tel:')) {
       const isKeyboard = e.type === 'focusin';
       prefetchOnInteraction(cleanUrl, isKeyboard);
     }

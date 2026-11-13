@@ -20,13 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof initFormSubmissions === 'function') initFormSubmissions();
   if (typeof initInstantPageTransitions === 'function') initInstantPageTransitions();
   
-  // Highlight active nav item based on current page pathname
+  // Highlight active nav item based on clean pathname
   highlightActiveNavLink();
 
   // Initialize DPDP & Cookie Compliance Banner
   initCookieBanner();
 
-  // Enforce company WhatsApp number across all links & dynamic popups
+  // Enforce company WhatsApp number across all links
   function enforceWhatsAppNumber() {
     const waLinks = document.querySelectorAll('a[href*="wa.me"]');
     waLinks.forEach(link => {
@@ -55,28 +55,23 @@ function dismissPreloader() {
       if (preloader && preloader.parentNode) {
         preloader.remove();
       }
-    }, 450);
+    }, 200);
   }
 }
 
-// Fast DOM-ready listener (dismisses quickly without waiting for every single remote image)
+// Fast DOM-ready listener
 if (document.readyState === 'interactive' || document.readyState === 'complete') {
-  setTimeout(dismissPreloader, 150);
+  dismissPreloader();
 } else {
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(dismissPreloader, 250);
-  });
+  document.addEventListener('DOMContentLoaded', dismissPreloader);
 }
-
-// Hard safety timeout: guarantees preloader dismisses within 500ms under all network conditions
-setTimeout(dismissPreloader, 500);
+setTimeout(dismissPreloader, 300);
 
 // 1. PWA Service Worker Registration with Background Update Check
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
+    navigator.serviceWorker.register('/sw.js')
       .then(reg => {
-        // Defer update check until browser network is completely idle
         setTimeout(() => {
           try { reg.update(); } catch (e) {}
         }, 3500);
@@ -89,14 +84,14 @@ if ('serviceWorker' in navigator) {
 }
 
 function highlightActiveNavLink() {
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = window.location.pathname.replace(/^\/|\.html$/g, '') || '';
   const navLinks = document.querySelectorAll('.nav-menu .nav-link');
   
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     if (!href) return;
-    const linkPath = href.split('#')[0];
-    if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+    const linkPath = href.split('#')[0].replace(/^\/|\.html$/g, '') || '';
+    if (linkPath === currentPath || ((currentPath === '' || currentPath === 'index') && (linkPath === '' || linkPath === 'index'))) {
       link.classList.add('active');
     } else if (linkPath && linkPath !== currentPath && !link.classList.contains('active-override')) {
       link.classList.remove('active');
@@ -124,7 +119,7 @@ function initCookieBanner() {
         <div class="cookie-icon" aria-hidden="true">🛡️</div>
         <div class="cookie-text">
           <strong>Privacy &amp; Data Transparency</strong>
-          We utilize essential telemetry cookies to ensure encrypted session integrity, verify plant compatibility, and analyze telemetry performance in compliance with India's Digital Personal Data Protection (DPDP) Act, 2023. Read our <a href="javascript:void(0)" onclick="openPrivacyModal()">Privacy Policy</a>.
+          We utilize essential telemetry cookies to ensure encrypted session integrity, verify plant compatibility, and analyze telemetry performance in compliance with India's Digital Personal Data Protection (DPDP) Act, 2023. Read our <a href="/privacy-policy">Privacy Policy</a>.
         </div>
       </div>
       <div class="cookie-actions">
@@ -135,7 +130,6 @@ function initCookieBanner() {
     document.body.appendChild(banner);
   }
 
-  // Smooth entrance
   setTimeout(() => {
     banner.classList.add('show');
   }, 850);
@@ -161,10 +155,6 @@ function initCookieBanner() {
 }
 
 function openPrivacyModal() {
-  if (typeof openModal === 'function') {
-    openModal('legalModal_privacy');
-  } else {
-    window.location.href = 'about.html';
-  }
+  window.location.href = '/privacy-policy/';
 }
 window.openPrivacyModal = openPrivacyModal;

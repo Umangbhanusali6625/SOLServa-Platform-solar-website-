@@ -746,7 +746,8 @@ body.nav-open {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .hero-stat-item h4 {
+  .hero-stat-item h4,
+  .hero-stat-item .hero-stat-val {
     font-size: 1.45rem;
     margin-bottom: 0;
   }
@@ -1123,7 +1124,7 @@ body.nav-open {
 
 .logger-device-thumbs-nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
 
@@ -1197,8 +1198,8 @@ body.nav-open {
 
 .logger-fleet-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .logger-fleet-card {
@@ -1274,6 +1275,12 @@ body.nav-open {
   border: 1px solid #fde68a;
 }
 
+.logger-badge-aviation {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
 .logger-fleet-card h5 {
   font-size: 1.15rem;
   font-weight: 700;
@@ -1311,7 +1318,7 @@ body.nav-open {
   flex-shrink: 0;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1140px) {
   .logger-fleet-grid {
     grid-template-columns: repeat(2, 1fr);
   }

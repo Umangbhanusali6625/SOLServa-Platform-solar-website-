@@ -1,30 +1,56 @@
-/* ===================================================================
-   AUTOMATED FORM DATA ENGINE & OWNER INBOX DISPATCH
-   Official Recipient: solservagreentechpvtltd@gmail.com
-   Support & WhatsApp Desk: +91 75749 46000
-   =================================================================== */
+/**
+ * SOLSERVA GREENTECH - FORM SUBMISSIONS & LEAD DISPATCH ENGINE
+ * Official Contact: solservagreentechpvtltd@gmail.com
+ * Direct WhatsApp Desk: +91 75749 46000
+ */
+
 const OWNER_EMAIL = 'solservagreentechpvtltd@gmail.com';
+const FORM_LOAD_TIME = Date.now();
+
+// Retrieve custom webhook / key if configured
+function getCustomWebhook() {
+  return localStorage.getItem('solserva_custom_webhook') || window.SOLSERVA_CUSTOM_WEBHOOK || '';
+}
 
 function getWeb3FormsKey() {
   return localStorage.getItem('solserva_web3forms_key') || window.SOLSERVA_WEB3FORMS_KEY || '';
 }
 
-// 1. Save Lead Locally to Browser Storage (Guaranteed Zero Data Loss)
+// 1. Anti-Spam Verification (Honeypot + Time-to-Submit Check)
+function isSpamSubmission(formElement) {
+  // Check 1: Honeypot field (hidden from humans, filled by bots)
+  const honeypot = formElement.querySelector('[name="_gotcha"]');
+  if (honeypot && honeypot.value.trim().length > 0) {
+    console.warn('[Anti-Spam] Bot detected via honeypot trigger.');
+    return true;
+  }
+
+  // Check 2: Submission speed (humans take >2 seconds to complete form)
+  const elapsedSeconds = (Date.now() - FORM_LOAD_TIME) / 1000;
+  if (elapsedSeconds < 1.8) {
+    console.warn('[Anti-Spam] Bot detected via rapid automated submission.');
+    return true;
+  }
+
+  return false;
+}
+
+// 2. Save Lead Locally to Browser Storage (Guaranteed Zero Data Loss)
 function saveLeadRecord(lead) {
   try {
     const existing = JSON.parse(localStorage.getItem('solserva_leads_v1') || '[]');
     existing.unshift(lead);
     localStorage.setItem('solserva_leads_v1', JSON.stringify(existing.slice(0, 500)));
   } catch (err) {
-    console.warn('[SOLServa Leads] Could not save locally:', err);
+    console.warn('[SOLServa Leads] Local storage notice:', err);
   }
 }
 
-// 2. Dispatch Lead Data directly to Owner's Email (solservagreentechpvtltd@gmail.com)
+// 3. Dispatch Lead Data directly to Owner's Email / Webhook / Sheet
 async function dispatchLeadToOwner(payload) {
   let emailDispatched = false;
 
-  // Primary: Dispatch via FormSubmit AJAX (Direct to solservagreentechpvtltd@gmail.com, no API key required)
+  // Primary: Dispatch via FormSubmit AJAX (Direct to solservagreentechpvtltd@gmail.com)
   try {
     const fsRes = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
       method: 'POST',
@@ -44,9 +70,23 @@ async function dispatchLeadToOwner(payload) {
     console.warn('[SOLServa Leads] FormSubmit notice:', fsErr);
   }
 
-  // Secondary: Dispatch via Web3Forms if owner configured a custom key
+  // Secondary: Optional Google Sheet Webhook or Custom API endpoint
+  const webhookUrl = getCustomWebhook();
+  if (webhookUrl && webhookUrl.startsWith('http')) {
+    try {
+      await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (whErr) {
+      console.warn('[SOLServa Leads] Custom webhook notice:', whErr);
+    }
+  }
+
+  // Tertiary: Web3Forms fallback if custom key is active
   const w3Key = getWeb3FormsKey();
-  if (w3Key && !w3Key.startsWith('YOUR_') && w3Key !== 'a812837f-5d0e-436b-9fb8-591a26d7c405') {
+  if (w3Key && !w3Key.startsWith('YOUR_')) {
     try {
       await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -67,35 +107,25 @@ async function dispatchLeadToOwner(payload) {
   return { success: true, emailDispatched };
 }
 
-// 3. Direct WhatsApp Dispatch Utility (Opens WhatsApp directly with pre-filled message)
+// 4. Direct WhatsApp Dispatch Utility
 function openDirectWhatsApp(waText) {
   const cleanPhone = '917574946000';
   const encoded = encodeURIComponent(waText);
   const waUrl = `https://wa.me/${cleanPhone}?text=${encoded}`;
 
-  // Attempt immediate direct popup / tab opening
   const newWin = window.open(waUrl, '_blank');
-
-  // If browser popup blocker intervened, redirect after brief moment
   if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
     setTimeout(() => {
       window.location.href = waUrl;
     }, 450);
   }
-
   return waUrl;
 }
 
 /* ===================================================================
-   FORM SUBMISSIONS WITH AUTOMATIC DATA COLLECTION & DIRECT WHATSAPP
+   FORM SUBMISSIONS WITH ANTI-SPAM, EMAIL DISPATCH & WHATSAPP
    =================================================================== */
 function initFormSubmissions() {
-  // Ensure any leftover owner portal DOM nodes are actively destroyed
-  const leftoverTrigger = document.getElementById('ownerPortalFloatingTrigger');
-  if (leftoverTrigger) leftoverTrigger.remove();
-  const leftoverModal = document.getElementById('ownerLeadsModal');
-  if (leftoverModal) leftoverModal.remove();
-
   const isLocalOrDev = 
     window.location.protocol === 'file:' || 
     window.location.hostname === 'localhost' || 
@@ -107,6 +137,20 @@ function initFormSubmissions() {
   if (genForm) {
     genForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Spam Protection
+      if (isSpamSubmission(genForm)) {
+        const statusBox = document.getElementById('genStatusMsg');
+        if (statusBox) {
+          statusBox.innerHTML = `
+            <div style="background:#fef2f2; border:1px solid #ef4444; color:#991b1b; padding:12px; border-radius:8px; margin-bottom:12px; font-size:0.88rem;">
+              Verification check failed. Please refresh the page and try again.
+            </div>
+          `;
+        }
+        return;
+      }
+
       const name = document.getElementById('genName')?.value?.trim() || '';
       const company = document.getElementById('genCompany')?.value?.trim() || 'N/A';
       const phone = document.getElementById('genPhone')?.value?.trim() || '';
@@ -120,23 +164,7 @@ function initFormSubmissions() {
       const statusBox = document.getElementById('genStatusMsg');
       const submitBtn = genForm.querySelector('button[type="submit"]');
 
-      // Check Cloudflare Turnstile verification if present (bypassed on local / dev / failed widget)
-      const turnstileInput = genForm.querySelector('[name="cf-turnstile-response"]');
-      if (!isLocalOrDev && turnstileInput && turnstileInput.value === '') {
-        const turnstileIframe = genForm.querySelector('.cf-turnstile iframe');
-        if (turnstileIframe) {
-          if (statusBox) {
-            statusBox.innerHTML = `
-              <div style="background:#fef2f2; border:1px solid #ef4444; color:#991b1b; padding:12px; border-radius:8px; margin-bottom:12px; font-size:0.88rem;">
-                Please complete the Cloudflare security verification before submitting.
-              </div>
-            `;
-          }
-          return;
-        }
-      }
-
-      // 1. Format the full WhatsApp message with clean plain text (no emojis or broken symbols)
+      // WhatsApp formatted message
       const waText = 
 `*NEW SOLSERVA SERVICE ENQUIRY*
 ----------------------------------------
@@ -153,8 +181,9 @@ ${msg || 'General service consultation requested.'}
 ----------------------------------------
 Sent via SOLServa Solar Web Portal`;
 
-      // 2. Save lead locally for Owner (Zero Data Loss)
       const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+      // Save locally (zero data loss)
       saveLeadRecord({
         refNo,
         date: timestamp,
@@ -169,7 +198,7 @@ Sent via SOLServa Solar Web Portal`;
         details: msg || 'General consultation requested.'
       });
 
-      // 3. Dispatch to Owner Email (solservagreentechpvtltd@gmail.com) in background
+      // Dispatch to email in background
       dispatchLeadToOwner({
         subject: `New SOLServa Lead: ${name} (${srv}) [${refNo}]`,
         from_name: 'SOLServa Greentech Portal',
@@ -185,10 +214,9 @@ Sent via SOLServa Solar Web Portal`;
         submission_time: timestamp
       });
 
-      // 4. Open WhatsApp directly right away!
+      // Open WhatsApp directly
       const waUrl = openDirectWhatsApp(waText);
 
-      // 5. Show prominent confirmation with manual WhatsApp fallback button
       if (statusBox) {
         statusBox.innerHTML = `
           <div style="background:#ecfdf5; border:1px solid #10b981; color:#064e3b; padding:18px; border-radius:12px; text-align:center; margin-top:14px; box-shadow:0 4px 14px rgba(16,185,129,0.12);">
@@ -196,7 +224,7 @@ Sent via SOLServa Solar Web Portal`;
               ✓ Enquiry Saved &amp; Opening WhatsApp...
             </div>
             <p style="font-size:0.86rem; color:#047857; margin:0 0 14px; line-height:1.5;">
-              Ref: <strong>${refNo}</strong> &bull; If WhatsApp didn't open automatically, click the button below to send your message:
+              Ref: <strong>${refNo}</strong> &bull; Submission dispatched to our desk. If WhatsApp didn't open automatically, click the button below:
             </p>
             <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:8px; padding:11px 24px; font-size:0.95rem; background:#25d366; border-color:#25d366; color:#ffffff; font-weight:700; border-radius:8px; text-decoration:none; box-shadow:0 4px 14px rgba(37,211,102,0.35);">
               Send Message on WhatsApp &rarr;
@@ -207,9 +235,6 @@ Sent via SOLServa Solar Web Portal`;
 
       genForm.reset();
       if (submitBtn) submitBtn.disabled = false;
-      if (window.turnstile) {
-        try { window.turnstile.reset(); } catch (err) {}
-      }
     });
   }
 
@@ -218,6 +243,9 @@ Sent via SOLServa Solar Web Portal`;
   if (compatForm) {
     compatForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      if (isSpamSubmission(compatForm)) return;
+
       const name = document.getElementById('compatName')?.value?.trim() || '';
       const contact = document.getElementById('compatContact')?.value?.trim() || '';
       const loc = document.getElementById('compatLocation')?.value?.trim() || '';
@@ -230,7 +258,6 @@ Sent via SOLServa Solar Web Portal`;
       const statusBox = document.getElementById('compatStatusMsg');
       const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
-      // Save locally
       saveLeadRecord({
         refNo,
         date: timestamp,
@@ -242,7 +269,6 @@ Sent via SOLServa Solar Web Portal`;
         details: `Plant Type: ${plantType}, Inverter: ${brand}, Capacity: ${cap} kW, Service: ${srv}`
       });
 
-      // Dispatch to email in background
       dispatchLeadToOwner({
         subject: `Plant Compatibility Request: ${name} [${brand} - ${cap} kW] (${refNo})`,
         from_name: 'SOLServa Compatibility Desk',
@@ -253,7 +279,8 @@ Sent via SOLServa Solar Web Portal`;
         plant_capacity: `${cap} kW`,
         inverter_model: brand,
         service_requested: srv,
-        reference_number: refNo
+        reference_number: refNo,
+        submission_time: timestamp
       });
 
       const waText = 
@@ -296,6 +323,9 @@ Sent via SOLServa Compatibility Desk`;
   if (epcForm) {
     epcForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      if (isSpamSubmission(epcForm)) return;
+
       const comp = document.getElementById('epcCompName')?.value?.trim() || '';
       const person = document.getElementById('epcContactPerson')?.value?.trim() || '';
       const email = document.getElementById('epcEmail')?.value?.trim() || '';
@@ -307,7 +337,6 @@ Sent via SOLServa Compatibility Desk`;
       const statusBox = document.getElementById('epcStatusMsg');
       const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
-      // Save locally
       saveLeadRecord({
         refNo,
         date: timestamp,
@@ -320,7 +349,6 @@ Sent via SOLServa Compatibility Desk`;
         details: `Portfolio: ${portfolio}, Model: ${model}`
       });
 
-      // Dispatch to email in background
       dispatchLeadToOwner({
         subject: `EPC Partner Application: ${comp} (${person}) [${refNo}]`,
         from_name: 'SOLServa EPC Desk',
@@ -330,7 +358,8 @@ Sent via SOLServa Compatibility Desk`;
         phone_number: phone,
         portfolio_scale: portfolio,
         partnership_model: model,
-        reference_number: refNo
+        reference_number: refNo,
+        submission_time: timestamp
       });
 
       const waText = 
@@ -372,6 +401,9 @@ Sent via SOLServa EPC Partner Desk`;
   if (ticketForm) {
     ticketForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      if (isSpamSubmission(ticketForm)) return;
+
       const cust = document.getElementById('ticketCustomer')?.value?.trim() || '';
       const contact = document.getElementById('ticketContact')?.value?.trim() || '';
       const plantId = document.getElementById('ticketPlantId')?.value?.trim() || 'N/A';
@@ -383,7 +415,6 @@ Sent via SOLServa EPC Partner Desk`;
       const statusBox = document.getElementById('ticketStatusMsg');
       const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
-      // Save locally
       saveLeadRecord({
         refNo: ticketNo,
         date: timestamp,
@@ -395,7 +426,6 @@ Sent via SOLServa EPC Partner Desk`;
         details: desc
       });
 
-      // Dispatch to email in background
       dispatchLeadToOwner({
         subject: `⚠️ Urgent Fault Ticket Logged: ${ticketNo} [${cat}]`,
         from_name: 'SOLServa Telemetry Alert Desk',
@@ -405,7 +435,8 @@ Sent via SOLServa EPC Partner Desk`;
         plant_location: loc,
         issue_category: cat,
         issue_details: desc,
-        ticket_number: ticketNo
+        ticket_number: ticketNo,
+        submission_time: timestamp
       });
 
       const waText = 
@@ -432,7 +463,7 @@ Sent via SOLServa Alert Desk`;
               ✓ Ticket Logged: ${ticketNo} &amp; Opening WhatsApp...
             </div>
             <p style="font-size:0.86rem; color:#b45309; margin:0 0 14px; line-height:1.5;">
-              Assigned to On-Call Technical Engineer. If WhatsApp didn't open automatically, click below to send ticket details:
+              Assigned to On-Call Technical Engineer. If WhatsApp didn't open automatically, click below:
             </p>
             <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-solar" style="display:inline-flex; align-items:center; gap:8px; padding:11px 24px; font-size:0.95rem; background:#f59e0b; border-color:#f59e0b; color:#ffffff; font-weight:700; border-radius:8px; text-decoration:none; box-shadow:0 4px 14px rgba(245,158,11,0.35);">
               Dispatch Alert via WhatsApp &rarr;
@@ -464,4 +495,3 @@ function initFaqAccordion() {
     });
   });
 }
-

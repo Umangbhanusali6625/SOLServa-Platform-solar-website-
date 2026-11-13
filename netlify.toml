@@ -1,0 +1,194 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services.html"
+  to = "/services/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/solutions.html"
+  to = "/solutions/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/epc-partners.html"
+  to = "/epc-partners/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/how-it-works.html"
+  to = "/how-it-works/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/calculator.html"
+  to = "/calculator/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/resources.html"
+  to = "/resources/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy-policy.html"
+  to = "/privacy-policy/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/service-scope.html"
+  to = "/service-scope/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services"
+  to = "/services/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services/"
+  to = "/services/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/solutions"
+  to = "/solutions/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/solutions/"
+  to = "/solutions/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/epc-partners"
+  to = "/epc-partners/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/epc-partners/"
+  to = "/epc-partners/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/how-it-works"
+  to = "/how-it-works/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/how-it-works/"
+  to = "/how-it-works/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/calculator"
+  to = "/calculator/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/calculator/"
+  to = "/calculator/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about/"
+  to = "/about/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/resources"
+  to = "/resources/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/resources/"
+  to = "/resources/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy/"
+  to = "/privacy-policy/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms/"
+  to = "/terms/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/service-scope"
+  to = "/service-scope/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/service-scope/"
+  to = "/service-scope/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co https://api.web3forms.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self';"
