@@ -175,8 +175,26 @@ function initCalculator() {
 }
 
 /* ===================================================================
-   DATA LOGGER DEVICE IMAGE SWITCHER
+   DATA LOGGER DEVICE IMAGE SWITCHER & ASSET PRELOADER
    =================================================================== */
+// Preload all hardware logger images into browser cache for instantaneous display
+(function preloadLoggerAssets() {
+  const loggerAssets = [
+    '/assets/images/stick-logger-with-usb-connector.webp',
+    '/assets/images/solserva-greentech-stick-logger.webp',
+    '/assets/images/stick-logger-with-green-connector.webp',
+    '/assets/images/solserva-stick-logger-junction-box.webp'
+  ];
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      loggerAssets.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    });
+  }
+})();
+
 function switchLoggerDevice(type, btnElement) {
   const devices = {
     usb: {
@@ -194,7 +212,7 @@ function switchLoggerDevice(type, btnElement) {
       badge: 'RS485 / DB9 Serial'
     },
     aviation: {
-      img: '/assets/images/stick-logger-with-green-connector.png',
+      img: '/assets/images/stick-logger-with-green-connector.webp',
       alt: 'SOLServa circular aviation port stick logger with green twist-lock connector',
       caption: 'SOLServa Circular Port Stick Logger',
       subcaption: 'Vibration-Proof 4-Pin Twist-Lock Telemetry • 4G LTE / WiFi • Make in India',
@@ -219,12 +237,8 @@ function switchLoggerDevice(type, btnElement) {
     const badgeEl = box.querySelector('.logger-device-badge-top');
 
     if (imgEl) {
-      imgEl.style.opacity = '0';
-      setTimeout(() => {
-        imgEl.src = selected.img;
-        imgEl.alt = selected.alt;
-        imgEl.style.opacity = '1';
-      }, 150);
+      imgEl.src = selected.img;
+      imgEl.alt = selected.alt;
     }
     if (captionEl) captionEl.textContent = selected.caption;
     if (subcaptionEl) subcaptionEl.textContent = selected.subcaption;

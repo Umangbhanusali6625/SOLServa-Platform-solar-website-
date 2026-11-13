@@ -3,7 +3,7 @@
  * Version: 3.4.0 (Universal Clean URL & Offline Routing Edition)
  */
 
-const CACHE_NAME = 'solserva-pwa-v20';
+const CACHE_NAME = 'solserva-pwa-v21';
 
 const STATIC_ASSETS = [
   '/',
@@ -36,7 +36,7 @@ const STATIC_ASSETS = [
   '/assets/images/solserva-green-energy-emblem.svg',
   '/assets/images/stick-logger-with-usb-connector.webp',
   '/assets/images/solserva-greentech-stick-logger.webp',
-  '/assets/images/stick-logger-with-green-connector.png',
+  '/assets/images/stick-logger-with-green-connector.webp',
   '/assets/images/solserva-stick-logger-junction-box.webp'
 ];
 
